@@ -31,7 +31,10 @@ export default function DesktopCallRail({ onEstimate }) {
         aria-label={`Call ${SITE.phone.display}`}
       >
         <Phone className="w-5 h-5" />
-        <span className="hidden group-hover:inline whitespace-nowrap font-display-bold text-lg tracking-wide pt-0.5">
+        <span 
+          className="hidden group-hover:inline whitespace-nowrap text-[15px]"
+          style={{ fontFamily: "system-ui, -apple-system, Arial, sans-serif", fontWeight: 700 }}
+        >
           {SITE.phone.display}
         </span>
       </a>

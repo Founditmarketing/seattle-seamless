@@ -129,7 +129,8 @@ export default function Header({ onEstimate }) {
           <div className="flex items-center gap-2.5">
             <a
               href={SITE.phone.tel}
-              className="haptic hidden md:flex items-center gap-2 text-white/90 hover:text-white font-display-bold text-lg tracking-wide"
+              className="haptic hidden md:flex items-center gap-2 text-white hover:text-white text-[15px]"
+              style={{ fontFamily: "system-ui, -apple-system, Arial, sans-serif", fontWeight: 700 }}
             >
               <Phone className="w-4 h-4" />
               {SITE.phone.display}

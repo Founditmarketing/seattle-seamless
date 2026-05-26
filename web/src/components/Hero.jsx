@@ -186,10 +186,10 @@ export default function Hero({ onEstimate }) {
               </button>
               <a
                 href={SITE.phone.tel}
-                className="haptic inline-flex items-center justify-center gap-2.5 text-white text-[24px] font-display-black uppercase tracking-tight"
-                style={{ WebkitTextStroke: "0.5px currentColor" }}
+                className="haptic inline-flex items-center justify-center gap-2.5 text-white text-[20px] tracking-tight"
+                style={{ fontFamily: "system-ui, -apple-system, Arial, sans-serif", fontWeight: 800 }}
               >
-                <Phone className="w-6 h-6 text-[var(--color-copper)]" />
+                <Phone className="w-5 h-5 text-[var(--color-copper)]" />
                 Or tap to call · {SITE.phone.display}
               </a>
             </div>
@@ -212,8 +212,8 @@ export default function Hero({ onEstimate }) {
                 ))}
                 <a
                   href={SITE.phone.tel}
-                  className="hidden md:inline-flex haptic items-center gap-2.5 text-white hover:text-[var(--color-copper)] text-[26px] lg:text-[30px] font-display-black uppercase tracking-wide ml-auto pr-1 transition-colors"
-                  style={{ WebkitTextStroke: "0.5px currentColor" }}
+                  className="hidden md:inline-flex haptic items-center gap-2.5 text-white hover:text-[var(--color-copper)] text-[26px] lg:text-[30px] tracking-wide ml-auto pr-1 transition-colors"
+                  style={{ fontFamily: "system-ui, -apple-system, Arial, sans-serif", fontWeight: 800 }}
                 >
                   <Phone className="w-6 h-6 lg:w-7 lg:h-7" />
                   {SITE.phone.display}
