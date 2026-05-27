@@ -150,11 +150,6 @@ export const GALLERY = [
   },
   {
     service: "replacement",
-    image: "jobs/job-17-yellow-craftsman-flag",
-    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
-  },
-  {
-    service: "replacement",
     image: "jobs/job-18-green-splitlevel-spring",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   },
