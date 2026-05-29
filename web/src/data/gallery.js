@@ -32,6 +32,11 @@
 export const GALLERY = [
   {
     service: "replacement",
+    image: "jobs/seamless",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
     image: "jobs/seamlessguttersnewimage",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   },
