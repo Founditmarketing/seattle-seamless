@@ -10,7 +10,7 @@ import { GALLERY } from "../data/gallery";
  * hero-quality shots, a couple of customer-portrait moments, and the
  * authentically-Pierce variety of home styles. Same data shape as
  * GALLERY so the lightbox + ResponsiveImg components don't care. */
-const FEATURED_INDICES = [0, 1, 2, 3, 4, 5, 11, 22, 13];
+const FEATURED_INDICES = [0, 1, 2, 3, 4, 5, 12, 23, 14];
 const FEATURED = FEATURED_INDICES.map((i) => GALLERY[i]).filter(Boolean);
 
 /* Filter pills are derived from the FEATURED slice. Categories with zero

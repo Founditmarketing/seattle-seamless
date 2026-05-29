@@ -93,7 +93,7 @@ export default function GalleryPage() {
               key={i}
               type="button"
               onClick={() => setOpenIndex(i)}
-              aria-label={`Open project photo: ${item.label}`}
+              aria-label={`Open project photo: ${item.alt}`}
               className="mob-card-tilt group relative overflow-hidden rounded-[var(--radius-tile)] bg-[var(--color-royal)] aspect-[4/5] text-left"
             >
               <ResponsiveImg

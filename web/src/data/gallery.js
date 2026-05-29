@@ -32,6 +32,11 @@
 export const GALLERY = [
   {
     service: "replacement",
+    image: "jobs/seamlessguttersnewimage",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
     image: "gallery-bellevue-modern",
     widths: [640],
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
@@ -186,11 +191,6 @@ export const GALLERY = [
   {
     service: "replacement",
     image: "jobs/20260110_125931",
-    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
-  },
-  {
-    service: "replacement",
-    image: "jobs/seamlessguttersnewimage",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   },
   {
