@@ -67,7 +67,7 @@ export const SITE = {
 
   website: "https://www.seamlessgutters4less.com",
   description:
-    "Veteran-owned seamless gutter installation, replacement, guards, and soffit & fascia repair across Pierce County and the wider Puget Sound. Anchored in Tacoma and Gig Harbor, serving Pierce, King, Snohomish, Thurston, Kitsap, and Mason counties.",
+    "Veteran-owned seamless gutter installation, replacement, guards & repairs across the Puget Sound. Same-week estimates in 6 WA counties. Call (253) 498-5575.",
 
   /* Primary service cities — where Doug runs the majority of his book. Used
    * for top-of-funnel positioning copy (hero subhead, footer, schema) and
