@@ -202,5 +202,110 @@ export const GALLERY = [
     service: "replacement",
     image: "jobs/seamlessguttersnewimage2",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20171020_113254",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20181009_135427",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20181203_141301",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20200202_133926",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20211211_104025",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20231103_154145",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20231130_141708",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20240403_125444",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20240416_164803",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20240518_152211",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20240730_184139",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20240908_120255",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20241219_122250",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20250425_110811",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20250524_122235",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20250706_125947",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20250713_185345",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20250804_103229",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20260102_132619",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20260324_182810",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/20260429_120810",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   }
 ];

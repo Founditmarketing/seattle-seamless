@@ -30,7 +30,7 @@ export default function WhyPnw() {
               base="whypnw-real"
               alt="Dark-bronze seamless gutters and downspout on a Pacific Northwest craftsman home with brick facade and clean fascia detail."
               sizes="(max-width: 1024px) 90vw, 540px"
-              widths={[640]}
+              widths={[640, 1024, 1600]}
               className="w-full h-full object-cover graded-warm"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-royal-deep)]/55 via-transparent to-transparent" />
