@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <div className="mb-6">
               <img
-                src="/logo.png"
+                src="/images/scraped/SG4Llogo.png"
                 alt={SITE.name}
                 width={320}
                 height={170}

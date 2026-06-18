@@ -44,7 +44,7 @@ function Brandmark({ compact = false, className = "" }) {
   return (
     <div className={`flex flex-col items-start ${className}`}>
       <img
-        src="/logo.png"
+        src="/images/scraped/SG4Llogo.png"
         alt={SITE.name}
         width={320}
         height={170}

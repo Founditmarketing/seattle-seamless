@@ -51,6 +51,22 @@ export default function TradeStamp({ name, size = "sm", alt, className = "" }) {
   }
 
   const displayed = SIZE_MAP[size] || SIZE_MAP.sm;
+
+  if (name === "google-5-star-rating") {
+    return (
+      <img
+        src="/google_transparent.png"
+        alt={alt || config.alt}
+        width={displayed}
+        height={displayed}
+        loading="lazy"
+        decoding="async"
+        className={`block ${className}`}
+        style={{ width: displayed, height: displayed }}
+      />
+    );
+  }
+
   const useLargeSrc = displayed > 240;
   const base = useLargeSrc ? `${config.base}-480` : `${config.base}-240`;
 
