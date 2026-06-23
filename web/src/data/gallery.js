@@ -258,12 +258,7 @@ export const GALLERY = [
     image: "jobs/20240730_184139",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   },
-  {
-    service: "replacement",
-    image: "jobs/20240908_120255",
-    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
-  },
-  {
+{
     service: "replacement",
     image: "jobs/20241219_122250",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
@@ -288,12 +283,7 @@ export const GALLERY = [
     image: "jobs/20250713_185345",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   },
-  {
-    service: "replacement",
-    image: "jobs/20250804_103229",
-    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
-  },
-  {
+{
     service: "replacement",
     image: "jobs/20260102_132619",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
@@ -305,8 +295,28 @@ export const GALLERY = [
   },
   {
     service: "replacement",
-    image: "jobs/20260429_120810",
-    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+    image: "1782247186998-l93co2ks54g",
+    alt: "Seamless gutter replacement on a yellow ranch-style home with mature landscaping.",
+  },
+  {
+    service: "installation",
+    image: "1782247128373-m9x016noqer",
+    alt: "New gutter installation on a green cabin with deck and Pacific Northwest forest backdrop.",
+  },
+  {
+    service: "replacement",
+    image: "1782247155945-0vcycjzykepa",
+    alt: "Seamless gutter replacement on a white and black two-story home.",
+  },
+  {
+    service: "installation",
+    image: "1782247169494-219pakl5tbd",
+    alt: "New gutter installation on a craftsman covered porch addition.",
+  },
+  {
+    service: "replacement",
+    image: "1782247144149-6xz10mg8913",
+    alt: "Seamless gutter replacement on a white ranch home with green lawn.",
   },
   {
     service: "installation",
