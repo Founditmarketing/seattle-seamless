@@ -296,46 +296,31 @@ export const GALLERY = [
   {
     service: "replacement",
     image: "1782247186998-l93co2ks54g",
+    widths: [640, 1024, 1600],
     alt: "Seamless gutter replacement on a yellow ranch-style home with mature landscaping.",
   },
   {
     service: "installation",
     image: "1782247128373-m9x016noqer",
+    widths: [640, 1024, 1600],
     alt: "New gutter installation on a green cabin with deck and Pacific Northwest forest backdrop.",
   },
   {
     service: "replacement",
     image: "1782247155945-0vcycjzykepa",
+    widths: [640, 1024, 1600],
     alt: "Seamless gutter replacement on a white and black two-story home.",
   },
   {
     service: "installation",
     image: "1782247169494-219pakl5tbd",
+    widths: [640, 1024, 1600],
     alt: "New gutter installation on a craftsman covered porch addition.",
   },
   {
     service: "replacement",
     image: "1782247144149-6xz10mg8913",
+    widths: [640, 1024, 1600],
     alt: "Seamless gutter replacement on a white ranch home with green lawn.",
-  },
-  {
-    service: "installation",
-    image: "IMG_3101",
-    alt: "Deck and exterior gutter installation on a green cabin home surrounded by Pacific Northwest forest.",
-  },
-  {
-    service: "replacement",
-    image: "IMG_3102",
-    alt: "Seamless gutter replacement on a white and black two-story home.",
-  },
-  {
-    service: "installation",
-    image: "IMG_3103",
-    alt: "New gutter installation on a craftsman covered porch addition.",
-  },
-  {
-    service: "replacement",
-    image: "IMG_3104",
-    alt: "Seamless gutter replacement on a white ranch-style home with green lawn.",
   }
 ];
