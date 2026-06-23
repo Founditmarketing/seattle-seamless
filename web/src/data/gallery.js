@@ -307,5 +307,25 @@ export const GALLERY = [
     service: "replacement",
     image: "jobs/20260429_120810",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "installation",
+    image: "IMG_3101",
+    alt: "Deck and exterior gutter installation on a green cabin home surrounded by Pacific Northwest forest.",
+  },
+  {
+    service: "replacement",
+    image: "IMG_3102",
+    alt: "Seamless gutter replacement on a white and black two-story home.",
+  },
+  {
+    service: "installation",
+    image: "IMG_3103",
+    alt: "New gutter installation on a craftsman covered porch addition.",
+  },
+  {
+    service: "replacement",
+    image: "IMG_3104",
+    alt: "Seamless gutter replacement on a white ranch-style home with green lawn.",
   }
 ];
