@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 export default function FooterContactForm() {
-  const [values, setValues] = useState({ name: "", phone: "", email: "" });
+  const [values, setValues] = useState({ name: "", phone: "", email: "", address: "" });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -21,6 +21,7 @@ export default function FooterContactForm() {
           name: values.name,
           phone: values.phone,
           email: values.email,
+          address: values.address,
           message: "Contact form request from footer.",
           source: "Website — footer contact form",
         }),
@@ -93,6 +94,19 @@ export default function FooterContactForm() {
             value={values.email}
             onChange={set("email")}
             className="w-full bg-black/20 border border-white/10 focus:border-[var(--color-copper)] rounded-[var(--radius-input)] px-4 py-3 text-white focus:outline-none transition-colors"
+          />
+        </label>
+        <label className="block">
+          <span className="block text-[11px] tracking-[0.18em] uppercase font-semibold text-white/70 mb-1.5">
+            Property Address
+          </span>
+          <input
+            type="text"
+            required
+            value={values.address}
+            onChange={set("address")}
+            placeholder="123 Main St, Tacoma, WA"
+            className="w-full bg-black/20 border border-white/10 focus:border-[var(--color-copper)] rounded-[var(--radius-input)] px-4 py-3 text-white placeholder:text-white/30 focus:outline-none transition-colors"
           />
         </label>
         <button

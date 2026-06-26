@@ -322,5 +322,15 @@ export const GALLERY = [
     image: "1782247144149-6xz10mg8913",
     widths: [640, 1024, 1600],
     alt: "Seamless gutter replacement on a white ranch home with green lawn.",
-  }
+  },
+  {
+    service: "replacement",
+    image: "jobs/1000027798",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/1776787152923-qvnwk4kulbb",
+    alt: "Seamless gutter project by Seamless Gutters 4 Less.",
+  },
 ];
