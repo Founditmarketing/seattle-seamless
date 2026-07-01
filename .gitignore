@@ -53,3 +53,6 @@ _design/screens/
 _design/*.png
 _design/*.jpg
 _design/*.webp
+
+# Local Claude Code tooling (preview launch config, etc.)
+.claude/

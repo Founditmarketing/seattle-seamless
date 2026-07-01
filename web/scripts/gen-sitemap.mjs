@@ -36,6 +36,7 @@ const PAGES = [
   { loc: "/about/",    changefreq: "monthly", priority: 0.7 },
   { loc: "/gallery/",  changefreq: "weekly",  priority: 0.7 },
   { loc: "/reviews/",  changefreq: "weekly",  priority: 0.8 },
+  { loc: "/faq/",      changefreq: "monthly", priority: 0.8 },
   { loc: "/contact/",  changefreq: "monthly", priority: 0.8 },
   ...SERVICE_SLUGS.map((slug) => ({
     loc: `/services/${slug}/`,

@@ -96,6 +96,34 @@ export function breadcrumbSchema(items) {
   };
 }
 
+/*
+ * FAQPage schema — the highest-leverage structured data for AI search and
+ * answer engines. Each Q&A becomes a Question/acceptedAnswer pair that
+ * Google, Bing, and LLM-backed search can lift directly into a rich result
+ * or a generated answer.
+ *
+ * `faqs` is the ALL_FAQS array from data/faqs.js: [{ q, a: [para, ...] }].
+ * The answer paragraphs are joined into a single string so the schema text
+ * matches exactly what the page renders (a requirement for FAQ rich
+ * results). Google forbids HTML tags other than a small allow-list here, so
+ * we emit plain text.
+ */
+export function faqSchema(faqs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${baseUrl}/faq/#faq`,
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: Array.isArray(a) ? a.join("\n\n") : a,
+      },
+    })),
+  };
+}
+
 export function reviewSchema(reviews) {
   return reviews.map((r) => ({
     "@context": "https://schema.org",

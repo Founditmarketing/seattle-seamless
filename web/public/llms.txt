@@ -3,6 +3,7 @@
 Seamless Gutters 4 Less provides professional gutter services in the Greater Seattle area. We specialize in gutter installation, replacement, cleaning, and maintenance, including gutter guards and soffit/fascia repair.
 
 - [Full Content](/llms-full.txt) - The complete text content of our website, including detailed services descriptions, service areas, customer testimonials, and FAQs.
+- [FAQ](/faq/) - Answers to common questions about seamless gutters, pricing, timelines, materials, service area, gutter guards, and maintenance.
 
 ## Services
 - Gutter Installation
