@@ -1,5 +1,4 @@
 import { createLeadInJobber, readJsonBody, sendJson, env } from "./_lib.js";
-import { sendLeadEmail } from "../_lib/notify.js";
 
 /**
  * POST /api/jobber/request
@@ -57,40 +56,16 @@ export default async function handler(req, res) {
     jobberResult = { ok: false, skipped: true, error: "JOBBER_REFRESH_TOKEN not configured" };
   }
 
-  /* CHANNEL 2: Email backup. Always fires, regardless of Jobber result —
-   * Doug gets a paper trail of every lead in his inbox. The email tells
-   * him whether Jobber succeeded so he knows whether to follow up
-   * manually. */
-  let emailResult;
-  try {
-    emailResult = await sendLeadEmail({
-      ...lead,
-      jobberOk:        jobberResult.ok,
-      jobberRequestId: jobberResult.requestId,
-      jobberError:     jobberResult.error,
-    });
-  } catch (e) {
-    console.error("[jobber/request] email channel threw:", e.message);
-    emailResult = { ok: false, error: e.message };
-  }
-
-  /* If neither channel succeeded, surface a 500 so the front-end can
-   * fall back to "call us directly" copy. Otherwise the lead is
-   * captured somewhere and we report success to the visitor. */
-  const overallOk = jobberResult.ok || emailResult.ok;
-
-  if (!overallOk) {
+  if (!jobberResult.ok) {
     return sendJson(res, 500, {
       ok:     false,
       error:  "We couldn't capture your lead right now — please call us.",
       jobber: jobberResult,
-      email:  emailResult,
     });
   }
 
   return sendJson(res, 200, {
     ok:     true,
     jobber: jobberResult,
-    email:  emailResult,
   });
 }
