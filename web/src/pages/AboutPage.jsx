@@ -39,6 +39,10 @@ export default function AboutPage() {
         ]}
       />
 
+      <p className="text-center text-[var(--color-copper)] font-semibold tracking-wide text-sm md:text-base py-8 px-[var(--space-page-x)]">
+        {SITE.tagline}
+      </p>
+
       {/* ── OUR STORY ── */}
       <section className="py-section-mobile lg:py-[var(--space-section-md)] max-w-[var(--max-content)] mx-auto px-[var(--space-page-x)]">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">

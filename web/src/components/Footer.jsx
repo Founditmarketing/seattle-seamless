@@ -35,6 +35,9 @@ export default function Footer() {
                 Veteran Owned
               </div>
             </div>
+            <p className="text-[var(--color-copper)] text-[13px] font-semibold mb-4">
+              {SITE.tagline}
+            </p>
             <p className="text-white/65 leading-relaxed text-[14px] mb-8 max-w-md">
               Veteran owned. Locally operated. Built for Pacific Northwest rain since {SITE.founded}.
               Six counties. One number. Zero subcontractors.

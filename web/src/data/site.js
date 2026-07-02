@@ -96,4 +96,6 @@ export const SITE = {
 
   promise:
     "Seamless gutters built for Pacific Northwest rain — installed fast, priced fair, backed by two decades on the ladder.",
+
+  tagline: "Quality Protection. Seamless Results. Always 4 Less.",
 };

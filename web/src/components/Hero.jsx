@@ -4,6 +4,7 @@ import RecentActivity from "./RecentActivity";
 import HeroLeadForm from "./HeroLeadForm";
 import HeroRain from "./HeroRain";
 import TradeStamp from "./atoms/TradeStamp";
+import Eyebrow from "./atoms/Eyebrow";
 import { useParallax } from "../hooks/useParallax";
 
 /* Hero trust-badge row — three large marks sitting together. Order is
@@ -145,8 +146,12 @@ export default function Hero({ onEstimate }) {
               only — duplicating it here was a second brand mark fighting the
               headline for attention. */}
           <div className="lg:col-span-7">
+            <div className="fade-up" style={{ animationDelay: "0.15s" }}>
+              <Eyebrow color="copper">{SITE.tagline}</Eyebrow>
+            </div>
+
             <h1
-              className="font-display-black uppercase text-white text-display-xl fade-up"
+              className="font-display-black uppercase text-white text-display-xl mt-3 fade-up"
               style={{ animationDelay: "0.25s" }}
             >
               <span className="md:hidden">
