@@ -1,9 +1,37 @@
 {
   "schema_version": "1.0",
   "name": "Seamless Gutters 4 Less",
-  "description": "Veteran-owned seamless gutter installation, replacement, guards, and soffit & fascia repair across the Puget Sound.",
+  "description": "Veteran-owned seamless gutter installation, replacement, guards, gutter cleaning, and soffit & fascia repair based in Tacoma, WA, serving the greater Puget Sound.",
+  "url": "https://www.seamlessgutters4less.com",
   "capabilities": [
-    "contact"
+    "contact",
+    "request-estimate"
   ],
-  "contact": "info@seamlessgutters4less.com"
+  "contact": "info@seamlessgutters4less.com",
+  "telephone": "+12534985575",
+  "areaServed": [
+    "Tacoma, WA",
+    "Gig Harbor, WA",
+    "Seattle, WA",
+    "Pierce County, WA",
+    "King County, WA",
+    "Snohomish County, WA",
+    "Thurston County, WA",
+    "Kitsap County, WA",
+    "Mason County, WA"
+  ],
+  "services": [
+    "Seamless gutter installation",
+    "Gutter replacement",
+    "Gutter guards",
+    "Soffit and fascia repair",
+    "Gutter cleaning"
+  ],
+  "hours": {
+    "monday_friday": "07:00-18:00",
+    "saturday": "08:00-16:00",
+    "sunday": "closed"
+  },
+  "license": "WA L&I SEAMLG4754KO",
+  "rating": { "value": 5.0, "count": 496, "source": "Google" }
 }

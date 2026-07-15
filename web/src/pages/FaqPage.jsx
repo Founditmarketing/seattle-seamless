@@ -3,6 +3,7 @@ import Eyebrow from "../components/atoms/Eyebrow";
 import PageHero from "../components/PageHero";
 import SchemaJsonLd from "../components/SchemaJsonLd";
 import { localBusinessSchema, breadcrumbSchema, faqSchema } from "../lib/schema";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { FAQ_CATEGORIES, ALL_FAQS } from "../data/faqs";
 import { SITE } from "../data/site";
 
@@ -20,7 +21,11 @@ import { SITE } from "../data/site";
  *      can quote without the surrounding page for context.
  */
 export default function FaqPage() {
-  document.title = `Gutter FAQ — Answers for Puget Sound Homeowners — ${SITE.name}`;
+  useDocumentMeta({
+    title: `Gutter FAQ — Answers for Puget Sound Homeowners — ${SITE.name}`,
+    description: `Straight answers on seamless gutters in Tacoma & the Puget Sound: pricing, timelines, materials, gutter guards, service area, and maintenance. Veteran-owned, ${SITE.rating.value.toFixed(1)}★ on Google. Call ${SITE.phone.display}.`,
+    path: "/faq/",
+  });
 
   const schemas = [
     localBusinessSchema(),

@@ -4,11 +4,16 @@ import EstimatorWidget from "../components/EstimatorWidget";
 import PageHero from "../components/PageHero";
 import SchemaJsonLd from "../components/SchemaJsonLd";
 import { localBusinessSchema, breadcrumbSchema } from "../lib/schema";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { SITE } from "../data/site";
 import { SERVICES } from "../data/services";
 
 export default function ContactPage() {
-  document.title = `Contact — ${SITE.name}`;
+  useDocumentMeta({
+    title: `Contact — Free Gutter Estimates in Tacoma & Puget Sound | ${SITE.name}`,
+    description: `Call or text ${SITE.phone.display} for a free, same-week seamless gutter estimate in Tacoma and across the Puget Sound. Veteran-owned, licensed, and insured. Open Mon–Sat.`,
+    path: "/contact/",
+  });
 
   const schemas = [
     localBusinessSchema(),

@@ -139,9 +139,22 @@ export const FAQ_CATEGORIES = [
     title: "Service Area",
     items: [
       {
+        q: "Do you install and repair seamless gutters in Tacoma, WA?",
+        a: [
+          `Yes. Seamless Gutters 4 Less is based in Tacoma, Washington, and Tacoma is our primary service area for seamless gutter installation, replacement, gutter guards, gutter cleaning, and soffit & fascia repair. We form seamless aluminum gutters on-site at your Tacoma home and offer free, same-week written estimates.`,
+          `Call or text ${SITE.phone.display} to schedule a Tacoma gutter estimate. We're veteran-owned, licensed in Washington (L&I #${SITE.license}), bonded, and insured, with a ${SITE.rating.value.toFixed(1)}-star rating on ${SITE.rating.source}.`,
+        ],
+      },
+      {
         q: "What areas do you serve?",
         a: [
           `Seamless Gutters 4 Less serves the greater Seattle–Tacoma area and the wider Puget Sound, covering ${counties} counties in Washington. Our trucks run regular routes from Marysville down to Olympia, and from Gig Harbor out to Bremerton.`,
+        ],
+      },
+      {
+        q: "Which Tacoma and Pierce County neighborhoods do you cover?",
+        a: [
+          "From our Tacoma home base we regularly work throughout Pierce County — including Gig Harbor, Puyallup, University Place, Lakewood, Bonney Lake, Spanaway, Graham, and Buckley — plus the surrounding Puget Sound. Pierce County is where the bulk of our installs happen, so scheduling in and around Tacoma is usually quick.",
         ],
       },
       {

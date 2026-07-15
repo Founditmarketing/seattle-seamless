@@ -4,9 +4,9 @@ import Eyebrow from "../components/atoms/Eyebrow";
 import ResponsiveImg from "../components/atoms/ResponsiveImg";
 import SchemaJsonLd from "../components/SchemaJsonLd";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { SERVICES } from "../data/services";
 import { SITE } from "../data/site";
-import { GALLERY } from "../data/gallery";
 
 /*
  * Extended copy per service — sourced from original site content.
@@ -116,19 +116,20 @@ const SERVICE_CONTENT = {
 export default function ServicePage() {
   const { slug } = useParams();
   const service = SERVICES.find((s) => s.slug === slug);
+  const content = service ? SERVICE_CONTENT[slug] || {} : {};
+
+  /* Hooks must run before any early return. Set per-service title,
+   * description, and canonical so each service page can rank for its own
+   * terms instead of inheriting the homepage's <head>. */
+  useDocumentMeta({
+    title: content.metaTitle || (service ? `${service.title} — ${SITE.name}` : SITE.name),
+    description: content.metaDesc || (service ? service.short : undefined),
+    path: service ? `/services/${service.slug}/` : undefined,
+  });
 
   if (!service) return <Navigate to="/" replace />;
 
-  const content = SERVICE_CONTENT[slug] || {};
   const Icon = service.icon;
-
-  /* find gallery photos matching this service type */
-  const relatedPhotos = GALLERY.filter(
-    (g) => g.service === slug.replace("seamless-gutter-", "").replace("gutter-", "").replace("soffit-and-fascia-", "soffit")
-  ).slice(0, 3);
-
-  /* Update document title */
-  document.title = content.metaTitle || `${service.title} — ${SITE.name}`;
 
   const schemas = [
     localBusinessSchema(),

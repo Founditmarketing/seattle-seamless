@@ -7,10 +7,15 @@ import SchemaJsonLd from "../components/SchemaJsonLd";
 import WAVeteranSeal from "../components/atoms/WAVeteranSeal";
 import TradeStampRow from "../components/TradeStampRow";
 import { localBusinessSchema, breadcrumbSchema } from "../lib/schema";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { SITE } from "../data/site";
 
 export default function AboutPage() {
-  document.title = `About — ${SITE.name}`;
+  useDocumentMeta({
+    title: `About — Veteran-Owned Gutter Company in Tacoma, WA | ${SITE.name}`,
+    description: `Seamless Gutters 4 Less is a Washington Certified Veteran-Owned gutter company based in Tacoma, serving the Puget Sound since ${SITE.founded}. Own crew, never subcontractors. WA Lic #${SITE.license}.`,
+    path: "/about/",
+  });
 
   const schemas = [
     localBusinessSchema(),

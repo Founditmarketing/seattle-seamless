@@ -4,6 +4,7 @@ import PageHero from "../components/PageHero";
 import SchemaJsonLd from "../components/SchemaJsonLd";
 import GalleryLightbox from "../components/GalleryLightbox";
 import { localBusinessSchema, breadcrumbSchema } from "../lib/schema";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { GALLERY } from "../data/gallery";
 import { SITE } from "../data/site";
 
@@ -18,7 +19,12 @@ const ALL_FILTERS = [
 export default function GalleryPage() {
   const [filter, setFilter] = useState("all");
   const [openIndex, setOpenIndex] = useState(null);
-  document.title = `Project Gallery — ${SITE.name}`;
+  useDocumentMeta({
+    title: `Project Gallery — Seamless Gutter Installs Across the Puget Sound | ${SITE.name}`,
+    description:
+      "Real seamless gutter, gutter guard, and soffit & fascia projects completed across Tacoma, Gig Harbor, Seattle, and the greater Puget Sound by our own veteran-owned crew.",
+    path: "/gallery/",
+  });
 
   const filtered =
     filter === "all" ? GALLERY : GALLERY.filter((g) => g.service === filter);

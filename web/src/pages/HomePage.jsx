@@ -15,15 +15,25 @@ import EstimatorSection from "../components/EstimatorSection";
 import FinalCta from "../components/FinalCta";
 import EstimateModal from "../components/EstimateModal";
 import SchemaJsonLd from "../components/SchemaJsonLd";
-import { localBusinessSchema, reviewSchema, breadcrumbSchema } from "../lib/schema";
+import { localBusinessSchema, websiteSchema, reviewSchema, breadcrumbSchema } from "../lib/schema";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { REVIEWS } from "../data/reviews";
 
 export default function HomePage() {
   const [estimateOpen, setEstimateOpen] = useState(false);
   const openEstimate = () => setEstimateOpen(true);
 
+  useDocumentMeta({
+    title:
+      "Seamless Gutters Tacoma & Puget Sound | Seamless Gutters 4 Less",
+    description:
+      "Veteran-owned seamless gutter installation, replacement, guards & repair in Tacoma and across the Puget Sound. Same-week free estimates. 21+ years, 5★ on Google. Call (253) 498-5575.",
+    path: "/",
+  });
+
   const schemas = [
     localBusinessSchema(),
+    websiteSchema(),
     breadcrumbSchema([{ name: "Home", path: "/" }]),
     ...reviewSchema(REVIEWS),
   ];
