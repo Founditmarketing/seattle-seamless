@@ -34,6 +34,49 @@ const counties = SITE.countiesServed
 
 export const FAQ_CATEGORIES = [
   {
+    id: "company-overview",
+    title: "Company Overview",
+    /*
+     * Client-supplied Q&A, added verbatim by request. NOTE: unlike the rest
+     * of this file, the "since 2005 / over 21 years" figure below is written
+     * out literally instead of pulled from SITE.founded / SITE.yearsDisplay(),
+     * because the client asked for this exact wording. Bump it manually (or
+     * switch to `${SITE.yearsDisplay()}`) when the number needs refreshing.
+     */
+    items: [
+      {
+        q: "What services does Seamless Gutters 4 Less offer?",
+        a: [
+          "Seamless Gutters 4 Less provides seamless gutter installation, gutter replacement, gutter guards, soffit and fascia repair, and gutter cleaning.",
+        ],
+      },
+      {
+        q: "How long has Seamless Gutters 4 Less been in business?",
+        a: [
+          "The company has been serving the Tacoma area and beyond since 2005, with over 21 years of experience.",
+        ],
+      },
+      {
+        q: "What materials do you use for gutters?",
+        a: [
+          "We custom-manufacture continuous seamless aluminum gutters on-site and also install copper and stainless steel gutters.",
+        ],
+      },
+      {
+        q: "Are your crews experienced and reliable?",
+        a: [
+          "Yes, our work is performed by our own trained in-house crew—never subcontractors—ensuring quality and reliability.",
+        ],
+      },
+      {
+        q: "Do you offer any discounts or special programs?",
+        a: [
+          "Yes, we provide a 10% discount for veterans, active military members, and seniors.",
+        ],
+      },
+    ],
+  },
+  {
     id: "seamless-gutters-basics",
     title: "Seamless Gutters 101",
     items: [
