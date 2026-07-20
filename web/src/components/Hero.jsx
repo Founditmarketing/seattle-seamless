@@ -7,26 +7,40 @@ import TradeStamp from "./atoms/TradeStamp";
 import Eyebrow from "./atoms/Eyebrow";
 import { useParallax } from "../hooks/useParallax";
 
-/* Hero trust-badge row — three large marks sitting together. Order is
- * owner-specified: Google rating first, satisfaction guarantee in the
- * middle, veteran-owned credential on the right. The row renders at two
- * different sizes:
- *   - Mobile / tablet (in the headline column): `md` = 112px per badge,
- *     because 3 lg badges + gaps would overflow a 375px viewport.
- *   - Desktop (in the right column above the form): `lg` = 180px per
- *     badge, giving the row real visual weight against the form below. */
-function HeroTrustBadges({ size = "md", className = "", style }) {
-  /* Gap is tighter on desktop so 3 lg badges (3 * 180 = 540) plus
-   * gaps fit inside the 5/12-column width without overflowing. */
-  const gap = size === "lg" ? "gap-3 sm:gap-4 lg:gap-3" : "gap-3 sm:gap-5 lg:gap-4";
+/* Hero trust-badge row — three credential stamps sitting together. Order is
+ * owner-specified: Google rating first, satisfaction guarantee in the middle,
+ * veteran-owned credential on the right.
+ *
+ * The row is FLUID. Each stamp is sized by flex-grow proportional to its
+ * intrinsic aspect ratio, so all three land at the SAME height with their
+ * true (undistorted) widths, and the whole row scales to whatever width the
+ * container gives it. The caller caps the size with a max-width; on narrower
+ * columns the row just shrinks. This replaces the old fixed-square rendering,
+ * which forced the non-square satisfaction (240×228) and veteran (240×198)
+ * seals into a square box and left them looking vertically stretched — and
+ * which overflowed the 5/12 desktop column, so flex-shrink crushed them
+ * further to ~130×180. */
+const HERO_BADGES = [
+  { name: "google-5-star-rating",   ratio: 1203 / 1206 },
+  { name: "satisfaction-guarantee", ratio: 240 / 228 },
+  { name: "wa-veteran-certified",   ratio: 240 / 198 },
+];
+
+function HeroTrustBadges({ className = "", style }) {
   return (
     <div
-      className={`flex items-center justify-center ${gap} ${className}`}
+      className={`flex items-center gap-3 sm:gap-4 ${className}`}
       style={style}
     >
-      <TradeStamp name="google-5-star-rating"  size={size} />
-      <TradeStamp name="satisfaction-guarantee" size={size} />
-      <TradeStamp name="wa-veteran-certified"   size={size} />
+      {HERO_BADGES.map((b) => (
+        <div
+          key={b.name}
+          className="min-w-0"
+          style={{ flex: `${b.ratio} ${b.ratio} 0%` }}
+        >
+          <TradeStamp name={b.name} fluid />
+        </div>
+      ))}
     </div>
   );
 }
@@ -232,7 +246,7 @@ export default function Hero({ onEstimate }) {
                 because the form isn't rendered above the fold on small
                 viewports. */}
             <HeroTrustBadges
-              className="lg:hidden mt-7 fade-up"
+              className="lg:hidden mt-7 w-full max-w-[340px] fade-up"
               style={{ animationDelay: "0.85s" }}
             />
 
@@ -255,7 +269,7 @@ export default function Hero({ onEstimate }) {
             className="hidden lg:flex lg:col-span-5 flex-col items-stretch gap-7 fade-up lg:justify-end"
             style={{ animationDelay: "0.5s" }}
           >
-            <HeroTrustBadges size="lg" className="self-end" />
+            <HeroTrustBadges className="self-end w-full max-w-[446px]" />
             <HeroLeadFormDesktop />
           </div>
         </div>
