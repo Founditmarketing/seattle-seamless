@@ -6,7 +6,7 @@
 
 /* Canonical numbers used anywhere on the site. Owner-confirmed values:
  *  - 21+ years in business (LLC founded ~2005)
- *  - 479 Google reviews
+ *  - 539 Google reviews
  *  - 5.0 ★ Google rating
  *  - 6 counties served
  *  - lifetime install count: not yet confirmed, displays as "Thousands"
@@ -52,10 +52,9 @@ export const SITE = {
 
   rating: {
     value: 5.0,
-    /* Live count from Doug's Google Business profile (via Trustindex
-     * aggregation, refreshed 2026-05-13). Trustindex pulls directly from
-     * Google's API so this matches the count on the public listing. */
-    count: 496,
+    /* Live count from Google's knowledge panel for Seamless Gutters 4 Less,
+     * Tacoma, WA (confirmed 2026-08-14, previously 496 on 2026-05-13). */
+    count: 539,
     source: "Google",
   },
 
