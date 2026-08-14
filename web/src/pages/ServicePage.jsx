@@ -3,8 +3,8 @@ import { Phone, ArrowRight, CheckCircle, MapPin } from "lucide-react";
 import Eyebrow from "../components/atoms/Eyebrow";
 import ResponsiveImg from "../components/atoms/ResponsiveImg";
 import SchemaJsonLd from "../components/SchemaJsonLd";
+import PageSEO from "../components/PageSEO";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
-import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { SERVICES } from "../data/services";
 import { SITE } from "../data/site";
 
@@ -118,15 +118,6 @@ export default function ServicePage() {
   const service = SERVICES.find((s) => s.slug === slug);
   const content = service ? SERVICE_CONTENT[slug] || {} : {};
 
-  /* Hooks must run before any early return. Set per-service title,
-   * description, and canonical so each service page can rank for its own
-   * terms instead of inheriting the homepage's <head>. */
-  useDocumentMeta({
-    title: content.metaTitle || (service ? `${service.title} — ${SITE.name}` : SITE.name),
-    description: content.metaDesc || (service ? service.short : undefined),
-    path: service ? `/services/${service.slug}/` : undefined,
-  });
-
   if (!service) return <Navigate to="/" replace />;
 
   const Icon = service.icon;
@@ -143,6 +134,11 @@ export default function ServicePage() {
 
   return (
     <>
+      <PageSEO
+        title={content.metaTitle || `${service.title} — ${SITE.name}`}
+        description={content.metaDesc || service.short}
+        path={`/services/${service.slug}/`}
+      />
       <SchemaJsonLd data={schemas} id={`service-${service.slug}`} />
       {/* ── HERO BANNER ── photo-led, with the Service icon as a chip */}
       <section

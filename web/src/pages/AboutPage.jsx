@@ -6,17 +6,11 @@ import PageHero from "../components/PageHero";
 import SchemaJsonLd from "../components/SchemaJsonLd";
 import WAVeteranSeal from "../components/atoms/WAVeteranSeal";
 import TradeStampRow from "../components/TradeStampRow";
+import PageSEO from "../components/PageSEO";
 import { localBusinessSchema, breadcrumbSchema } from "../lib/schema";
-import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { SITE } from "../data/site";
 
 export default function AboutPage() {
-  useDocumentMeta({
-    title: `About — Veteran-Owned Gutter Company in Tacoma, WA | ${SITE.name}`,
-    description: `Seamless Gutters 4 Less is a Washington Certified Veteran-Owned gutter company based in Tacoma, serving the Puget Sound since ${SITE.founded}. Own crew, never subcontractors. WA Lic #${SITE.license}.`,
-    path: "/about/",
-  });
-
   const schemas = [
     localBusinessSchema(),
     breadcrumbSchema([
@@ -27,6 +21,11 @@ export default function AboutPage() {
 
   return (
     <>
+      <PageSEO
+        title={`About — Veteran-Owned Gutter Company in Tacoma, WA | ${SITE.name}`}
+        description={`Seamless Gutters 4 Less is a Washington Certified Veteran-Owned gutter company based in Tacoma, serving the Puget Sound since ${SITE.founded}. Own crew, never subcontractors. WA Lic #${SITE.license}.`}
+        path="/about/"
+      />
       <SchemaJsonLd data={schemas} id="about" />
       <PageHero
         eyebrow="About Us"

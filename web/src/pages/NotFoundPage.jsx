@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 import { SITE } from "../data/site";
-import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import PageSEO from "../components/PageSEO";
 
 export default function NotFoundPage() {
-  /* No canonical/path — a 404 is not an indexable page. */
-  useDocumentMeta({
-    title: `Page Not Found — ${SITE.name}`,
-    description:
-      "This page doesn't exist. Head back to Seamless Gutters 4 Less for veteran-owned seamless gutter installation, replacement, guards, and repair in Tacoma and the Puget Sound.",
-  });
-
   return (
     <section className="min-h-[60vh] flex items-center justify-center py-20">
+      {/* No canonical/path — a 404 is not an indexable page. */}
+      <PageSEO
+        title={`Page Not Found — ${SITE.name}`}
+        description="This page doesn't exist. Head back to Seamless Gutters 4 Less for veteran-owned seamless gutter installation, replacement, guards, and repair in Tacoma and the Puget Sound."
+      />
       <div className="text-center px-[var(--space-page-x)]">
         <div className="font-display-black text-[12rem] leading-none text-[var(--color-royal)]/10 select-none">
           404

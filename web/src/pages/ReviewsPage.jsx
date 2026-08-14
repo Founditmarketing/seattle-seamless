@@ -1,18 +1,12 @@
 import { Star, ExternalLink, Quote } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SchemaJsonLd from "../components/SchemaJsonLd";
+import PageSEO from "../components/PageSEO";
 import { localBusinessSchema, breadcrumbSchema, reviewSchema } from "../lib/schema";
-import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { REVIEWS } from "../data/reviews";
 import { SITE } from "../data/site";
 
 export default function ReviewsPage() {
-  useDocumentMeta({
-    title: `Reviews — ${SITE.rating.value.toFixed(1)}★ from ${SITE.rating.count}+ Customers | ${SITE.name}`,
-    description: `Read why ${SITE.rating.count}+ Puget Sound homeowners rate Seamless Gutters 4 Less ${SITE.rating.value.toFixed(1)} stars on Google. Verified reviews from Tacoma, Gig Harbor, Seattle, and beyond.`,
-    path: "/reviews/",
-  });
-
   /* Optional-chained destructure so the page survives an empty REVIEWS
    * array. While we're waiting on real review text from Doug, the page
    * still renders cleanly — hero + aggregate stats + big CTA panel —
@@ -31,6 +25,11 @@ export default function ReviewsPage() {
 
   return (
     <>
+      <PageSEO
+        title={`Reviews — ${SITE.rating.value.toFixed(1)}★ from ${SITE.rating.count}+ Customers | ${SITE.name}`}
+        description={`Read why ${SITE.rating.count}+ Puget Sound homeowners rate Seamless Gutters 4 Less ${SITE.rating.value.toFixed(1)} stars on Google. Verified reviews from Tacoma, Gig Harbor, Seattle, and beyond.`}
+        path="/reviews/"
+      />
       <SchemaJsonLd data={schemas} id="reviews" />
       <PageHero
         eyebrow="Customer Reviews"
