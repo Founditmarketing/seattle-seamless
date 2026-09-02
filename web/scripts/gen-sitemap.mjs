@@ -38,6 +38,11 @@ const PAGES = [
   { loc: "/reviews/",  changefreq: "weekly",  priority: 0.8 },
   { loc: "/faq/",      changefreq: "monthly", priority: 0.8 },
   { loc: "/contact/",  changefreq: "monthly", priority: 0.8 },
+  /* Blog POST urls live in the DYNAMIC sitemap (/blog-sitemap.xml, served by
+   * api/blog/sitemap.js and listed in robots.txt) — posts publish on a
+   * schedule between deploys, so a build-time list would always be stale.
+   * Only the /blog/ index belongs here. */
+  { loc: "/blog/",     changefreq: "weekly",  priority: 0.6 },
   ...SERVICE_SLUGS.map((slug) => ({
     loc: `/services/${slug}/`,
     changefreq: "monthly",

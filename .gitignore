@@ -56,3 +56,6 @@ _design/*.webp
 
 # Local Claude Code tooling (preview launch config, etc.)
 .claude/
+
+# Local blog dev store (web/api/blog/_lib.js fallback when no KV creds)
+.blog-dev-store.json

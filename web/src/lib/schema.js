@@ -197,6 +197,28 @@ export function websiteSchema() {
   };
 }
 
+/*
+ * BlogPosting — one per post page. `post` is a document from /api/blog/list
+ * (api/blog/_lib.js). Hero images are real jobsite photos stored as
+ * <base>-1024.jpg in /public; a post can ship imageless.
+ */
+export function blogPostingSchema(post) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${baseUrl}/blog/${post.slug}/#post`,
+    headline: post.title,
+    description: post.excerpt,
+    ...(post.heroImage ? { image: `${baseUrl}/${post.heroImage}-1024.jpg` } : {}),
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: SITE.name, "@id": `${baseUrl}#business` },
+    publisher: { "@id": `${baseUrl}#business` },
+    mainEntityOfPage: `${baseUrl}/blog/${post.slug}/`,
+    articleSection: post.category,
+  };
+}
+
 export function reviewSchema(reviews) {
   return reviews.map((r) => ({
     "@context": "https://schema.org",

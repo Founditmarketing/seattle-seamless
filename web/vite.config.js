@@ -2,10 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import jobberDevApi from './vite-plugins/jobber-dev-api.js'
+import blogDevApi from './vite-plugins/blog-dev-api.js'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), jobberDevApi()],
+  plugins: [react(), tailwindcss(), jobberDevApi(), blogDevApi()],
   server: {
     host: true,
     open: true,

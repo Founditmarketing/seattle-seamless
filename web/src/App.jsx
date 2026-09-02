@@ -7,6 +7,8 @@ import GalleryPage from "./pages/GalleryPage";
 import ReviewsPage from "./pages/ReviewsPage";
 import ContactPage from "./pages/ContactPage";
 import FaqPage from "./pages/FaqPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
@@ -21,6 +23,8 @@ export default function App() {
           <Route path="/reviews/*" element={<ReviewsPage />} />
           <Route path="/contact/*" element={<ContactPage />} />
           <Route path="/faq/*" element={<FaqPage />} />
+          <Route path="/blog/:slug/*" element={<BlogPostPage />} />
+          <Route path="/blog/*" element={<BlogPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </PageLayout>
