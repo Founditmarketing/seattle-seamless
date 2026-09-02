@@ -10,7 +10,8 @@
  *   POST  {action:"ingest", topicKey, draft, publishAt}
  *                                      → assemble + save a CRM-written draft (auth)
  *   POST  {action:"generate"}          → dormant on-site writer (needs env)  (auth)
- *   DELETE ?slug=…                     → delete a post, live or scheduled    (auth)
+ *   DELETE ?slug=…                     → delete a post, live or scheduled, and
+ *                                        free its topic for the rotation    (auth)
  *
  * Auth, in order of preference — the site itself needs NO env vars:
  *   1. Ed25519 signature from the Found-IT CRM (x-foundit-ts/-sig, verified
@@ -24,6 +25,7 @@ import {
   getPost,
   deletePost,
   setAdd,
+  setRemove,
   getConfig,
   checkPassword,
   makeSessionCookie,
@@ -106,6 +108,8 @@ export default async function handler(req, res) {
       const post = await getPost(slug);
       if (!post) return sendJson(res, 404, { error: "Post not found" });
       if (post.source === "seed") await setAdd("blog:seed_deleted", slug); // never resurrect
+      // Deleting a post frees its topic so the rotation can write it again.
+      if (post.topicKey) await setRemove("blog:topics_used", post.topicKey);
       await deletePost(slug);
       return sendJson(res, 200, { ok: true, deleted: slug });
     }

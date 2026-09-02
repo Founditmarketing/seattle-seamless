@@ -37,6 +37,10 @@ import {
 } from "./site-config.js";
 
 const MODEL = "claude-opus-5";
+/* A real post is 700-1000 words in 3-5 sections; anything under this is a
+ * truncated model response, not a short article. */
+const MIN_WORDS = 450;
+const MIN_SECTIONS = 2;
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 
 /* ─── Topic selection ───────────────────────────────────────────────────── */
@@ -124,6 +128,8 @@ function userPrompt(topic, existingTitles) {
 
 Topic brief: ${topic.brief}
 
+Length and shape: 700-1000 words total, as 3-5 h2 sections of 2-4 paragraphs each; use a ul list only where it genuinely helps. Return the COMPLETE post — every section, start to finish — as the body array. A body with a single paragraph is a failure.
+
 Existing post titles on the blog (do NOT overlap with these in title or substance):
 ${existingTitles.map((t) => `- ${t}`).join("\n") || "- (none)"}`;
 }
@@ -200,6 +206,17 @@ export async function ingestDraft({ topicKey, draft, publishAt }) {
   const body = draft.body
     .filter((b) => (b.t === "ul" ? (b.items || []).length : (b.text || "").trim()))
     .map((b) => (b.t === "ul" ? { t: "ul", items: b.items } : { t: b.t, text: b.text }));
+
+  // The model occasionally returns a truncated body (one opening paragraph and
+  // nothing else). Never let that land as a post — reject it so the writer
+  // (CRM writer.ts) retries the assignment instead.
+  const words = wordCount(body);
+  const sections = body.filter((b) => b.t === "h2").length;
+  if (words < MIN_WORDS || sections < MIN_SECTIONS) {
+    throw new Error(
+      `Draft rejected as truncated: ${words} words / ${sections} h2 sections (need ${MIN_WORDS}+ words and ${MIN_SECTIONS}+ sections) — retry the assignment`,
+    );
+  }
 
   // Drop a real jobsite photo in after the second h2, like the seed posts do.
   if (inline) {
