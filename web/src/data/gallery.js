@@ -333,4 +333,40 @@ export const GALLERY = [
     image: "jobs/1776787152923-qvnwk4kulbb",
     alt: "Seamless gutter project by Seamless Gutters 4 Less.",
   },
+
+  /* Owner-supplied batch, 2026-09-07 (Drive: "Seamless Gutters 4 Less /
+   * New Pics"). 1000028750 and 1000028751 read as the same tan split-level
+   * before and during the install — pair them as a before/after once Doug
+   * confirms. Service tags follow the file's convention: "installation"
+   * where build context is visible, "replacement" otherwise. */
+  {
+    service: "replacement",
+    image: "jobs/1000028736",
+    alt: "Mid-century ranch home in charcoal and cedar with new black seamless gutters, Seamless Gutters 4 Less yard sign out front.",
+  },
+  {
+    service: "installation",
+    image: "jobs/1000028751",
+    alt: "Seamless Gutters 4 Less crew member on site as new white seamless gutters and downspouts go up on a tan split-level home.",
+  },
+  {
+    service: "installation",
+    image: "jobs/1000028750",
+    alt: "Split-level home under Douglas firs with the roofline stripped and prepped for new seamless gutters.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/1000028737",
+    alt: "Two-story split-level home with new dark seamless gutters and a Seamless Gutters 4 Less yard sign in the front yard.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/1000028694",
+    alt: "Gray manufactured home with fresh white seamless gutters running the full roofline.",
+  },
+  {
+    service: "replacement",
+    image: "jobs/1000028779",
+    alt: "Dark green craftsman bungalow with white porch columns, gutter work by Seamless Gutters 4 Less.",
+  },
 ];

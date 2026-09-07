@@ -10,7 +10,10 @@ import { GALLERY } from "../data/gallery";
  * hero-quality shots, a couple of customer-portrait moments, and the
  * authentically-Pierce variety of home styles. Same data shape as
  * GALLERY so the lightbox + ResponsiveImg components don't care. */
-const FEATURED_INDICES = [0, 1, 2, 3, 4, 5, 12, 23, 14];
+/* 58 + 59 are the 2026-09-07 owner batch: the branded-yard-sign ranch and
+ * the crew-on-site install. They take the slots that held two of the
+ * generated gallery-* renders, so the strip leads with real jobs. */
+const FEATURED_INDICES = [0, 1, 58, 59, 4, 5, 12, 23, 14];
 const FEATURED = FEATURED_INDICES.map((i) => GALLERY[i]).filter(Boolean);
 
 /* Filter pills are derived from the FEATURED slice. Categories with zero
