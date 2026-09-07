@@ -1,17 +1,23 @@
 /*
- * Service-area landing pages — one per Tier 1 city (sg4l-plan.md §7).
+ * Service-area landing pages — one per Tier 1 and Tier 2 city
+ * (sg4l-plan.md §7).
  *
  * URL shape follows the plan: /service-areas/[county]/[city]/, with a
  * county hub at /service-areas/[county]/ and a top-level hub at
  * /service-areas/. Nesting the county keeps the door open for the
  * [city]/[service] matrix the plan wants later without re-cutting URLs.
  *
- * WHICH CITIES: data/cities.js tier 1 — the 10 Pierce County markets that
- * reflect Doug's actual book of work. Note that sg4l-plan.md §7 lists a
- * DIFFERENT tier 1 (17 north-Seattle / Eastside cities) written against the
- * original brief. cities.js is the corrected, later source of truth and its
- * header says tier 1 ships service-area pages first, so we follow the data,
- * not the plan doc. Tier 2 (North Sound) is the natural next batch.
+ * WHICH CITIES: data/cities.js tiers 1 and 2 — 10 Pierce County markets
+ * (tier 1, Doug's core book of work) plus 10 North Sound markets across
+ * King and Snohomish (tier 2). Note that sg4l-plan.md §7 lists a DIFFERENT
+ * tier 1, the 17 north-Seattle / Eastside cities from the original brief;
+ * cities.js is the corrected, later source of truth and its header says
+ * tier 1 ships service-area pages first, so we follow the data, not the
+ * plan doc. Tier 3 (17 outer Thurston / Kitsap / Mason cities) is what
+ * remains, and is genuinely lower value — thinner demand, and we'd be
+ * stretching for things that are true and specific about each town.
+ * Consider the plan's [city]/[service] matrix for the strongest markets
+ * before grinding out tier 3.
  *
  * CONTENT RULES — read before adding a city:
  *   1. Every claim here must be TRUE. Housing stock, geography, tree cover,
@@ -346,6 +352,326 @@ export const SERVICE_AREAS = [
     ],
     nearby: ["spanaway", "graham", "lakewood"],
   },
+  /* ── TIER 2 — North Sound (King + Snohomish). Added 2026-09-07.
+   *
+   * BOTHELL straddles the King/Snohomish line — genuinely, roughly down
+   * the middle along the Sammamish River. A city can only have one
+   * canonical URL, so it lives under King County (city hall and the
+   * historic downtown sit on that side) and the copy says outright that
+   * we work both halves. Don't "fix" this by adding a second URL under
+   * Snohomish; that's duplicate content for one page's worth of demand. */
+  {
+    slug: "bellevue",
+    name: "Bellevue",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Bellevue",
+    metaTitle: "Seamless Gutter Installation in Bellevue, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters across Bellevue — Somerset, Bridle Trails, Lake Hills, Newport. Installation, replacement, guards, and fascia repair. Call (253) 498-5575.",
+    lead:
+      "Bellevue is the Eastside's center of gravity, and its gutter work splits cleanly along the age of the neighborhood — mid-century originals on one side of town, teardown-rebuilds on the other.",
+    areas: [
+      "Somerset",
+      "Bridle Trails",
+      "Lake Hills",
+      "Crossroads",
+      "Newport Hills",
+      "Eastgate",
+      "Factoria",
+      "Wilburton",
+    ],
+    homes:
+      "The neighborhoods that built out in the 1950s through the 1970s — Lake Hills, Newport Hills, Eastgate, big stretches of Crossroads — are ramblers and split-levels on generous lots, and a lot of them are still carrying the gutter system they were built with. Somerset climbs the side of Cougar Mountain, which adds a complication most of Bellevue doesn't have: steep lots where whatever leaves the downspout heads straight downhill toward the next foundation, so where the water is discharged matters as much as the gutter itself. Bridle Trails and West Bellevue are where you find the rebuilds — large custom homes with cut-up rooflines, dormers, and long valleys that concentrate a lot of water into short runs and need downspout counts to match.",
+    climate:
+      "The Eastside runs a touch drier than the shoreline cities, but that's a small edge and it doesn't change the tree math. Bridle Trails in particular sits under genuinely mature Douglas fir — it's the most heavily wooded part of the city — and the Lake Hills greenbelt threads big conifers straight through neighborhoods that otherwise look open. Needle drop, not rainfall, is what actually clogs gutters in Bellevue.",
+    issues: [
+      "Original 1960s and 70s gutter systems on Lake Hills and Newport ramblers",
+      "Steep Somerset and Cougar Mountain lots where downspout discharge runs downhill",
+      "Cut-up custom rooflines on Bridle Trails rebuilds with too few downspouts",
+      "Mature fir canopy dropping needles year-round into open-top gutters",
+    ],
+    nearby: ["kirkland", "redmond", "mercer-island"],
+  },
+  {
+    slug: "kirkland",
+    name: "Kirkland",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Kirkland",
+    metaTitle: "Seamless Gutter Installation in Kirkland, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutter installation and replacement in Kirkland, WA — Juanita, Houghton, Rose Hill, Finn Hill. Lakefront and townhome work. Call (253) 498-5575.",
+    lead:
+      "Kirkland runs downhill to Lake Washington, and that slope is the thread through most of the gutter work here — on the waterfront, in the older cottages above Market Street, and on the townhomes filling in between them.",
+    areas: [
+      "Juanita",
+      "Houghton",
+      "Rose Hill",
+      "Totem Lake",
+      "Finn Hill",
+      "Market Street",
+      "Norkirk",
+    ],
+    homes:
+      "Three eras share the same streets in Kirkland. Close to downtown and up Market Street there are early-1900s cottages and Craftsman homes with steep pitches and original fascia detail. Rose Hill, Totem Lake, and Finn Hill are largely mid-century — ranches and split-levels now well past the age where original gutters can be trusted. Then there's the redevelopment: Kirkland has taken more townhome and small-lot infill than almost any city on the Eastside, and those buildings pack tall, narrow elevations close together, which means gutters at height, short runs, and very little room to set a ladder. Knowing that before quoting is the difference between a clean job and an afternoon of improvising.",
+    climate:
+      "The lake slope is the local variable. Lots that fall toward Lake Washington give runoff a head start, and dumping it at the base of a foundation on a grade is how you find out your drainage was never really solved. Kirkland also has substantial mature canopy through Finn Hill and the older streets above the water — a mix of big-leaf maple and fir, meaning both a heavy fall leaf dump and steady needle drop the rest of the year.",
+    issues: [
+      "Lakeward slopes where downspout runoff needs routing well away from the foundation",
+      "Aging mid-century systems through Rose Hill and Finn Hill",
+      "Tall, tightly packed townhome elevations with limited ladder access",
+      "Original fascia detail on older Market Street and Norkirk homes",
+    ],
+    nearby: ["bellevue", "redmond", "bothell"],
+  },
+  {
+    slug: "redmond",
+    name: "Redmond",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Redmond",
+    metaTitle: "Seamless Gutter Installation in Redmond, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Redmond, WA — Education Hill, Grass Lawn, Idylwood, Union Hill. Installation, replacement, and guards. Call (253) 498-5575.",
+    lead:
+      "Redmond is mostly subdivision country with a rural edge on its east side, and the two halves need different things from a gutter crew.",
+    areas: [
+      "Education Hill",
+      "Grass Lawn",
+      "Idylwood",
+      "Union Hill",
+      "Overlake",
+      "Bear Creek",
+      "Sammamish River valley",
+    ],
+    homes:
+      "Education Hill and Grass Lawn are the heart of it — large 1970s through 1990s subdivisions, two-story homes, multi-gable rooflines, and builder-grade gutter systems that are now hitting the age where hangers pull loose and seams open at the corners. East toward Union Hill and Bear Creek the pattern changes to acreage: custom homes and properties with shops and detached garages, on lots where a truck needs room to set up and form gutters on site. The Sammamish River valley floor adds a third case, where the water table sits high enough that downspout discharge has to be routed with some thought rather than just dropped at grade.",
+    climate:
+      "Redmond has more standing conifer inside its city limits than most Eastside cities — the Redmond Watershed borders the north end and mature second-growth fir runs through the older subdivisions. That means fine needle drop, which is the debris type that passes straight through a coarse screen and mats at the downspout inlet. Bear Creek and the river corridor also bring genuine drainage sensitivity, which is a good reason not to be careless about where a downspout ends.",
+    issues: [
+      "Builder-grade subdivision gutters from the 70s-90s at end of life",
+      "Fine fir needle drop from the watershed and neighborhood conifers",
+      "Acreage properties out Union Hill with shops and outbuildings to drain",
+      "High water table on the valley floor punishing lazy downspout routing",
+    ],
+    nearby: ["kirkland", "sammamish", "bellevue"],
+  },
+  {
+    slug: "bothell",
+    name: "Bothell",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Bothell",
+    metaTitle: "Seamless Gutter Installation in Bothell, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Bothell, WA — both the King and Snohomish sides. Canyon Park, North Creek, Thrashers Corner, downtown. Call (253) 498-5575.",
+    lead:
+      "Bothell sits on the King–Snohomish line, roughly split down the middle along the Sammamish River. We work both halves; the county line changes your mailing address, not your gutters.",
+    areas: [
+      "Downtown Bothell",
+      "Canyon Park",
+      "North Creek",
+      "Thrashers Corner",
+      "Queensborough",
+      "Sammamish River valley",
+    ],
+    homes:
+      "Old Bothell around Main Street holds the city's early housing — modest, older homes with simple rooflines where a clean continuous run makes an obvious difference. Everything above the valley is newer: Canyon Park, North Creek, and Thrashers Corner filled in through the 1980s, 90s, and 2000s with two-story subdivision homes carrying the multi-gable rooflines of that era. The defining Bothell problem is the hillside. The city climbs steeply out of the river valley on both sides, and on a grade like that a downspout emptying at the foundation doesn't soak away — it runs, and it takes soil with it. Extensions and proper routing to grade earn their keep here more than almost anywhere else on this list.",
+    climate:
+      "The Sammamish River valley collects water off both slopes, so the low ground stays wet well into spring and drainage is a live issue rather than a theoretical one. The hillsides are heavily wooded — North Creek and the greenbelts around Cascadia keep mature conifer right up against the subdivisions — which puts steady needle load on homes that were built with plain open-top gutters.",
+    issues: [
+      "Steep valley hillsides where runoff erodes rather than soaks away",
+      "Multi-gable subdivision rooflines in Canyon Park and North Creek",
+      "Wet valley floor keeping drainage a year-round concern",
+      "Greenbelt conifers dropping needles onto unprotected gutters",
+    ],
+    nearby: ["kirkland", "mill-creek", "lynnwood"],
+  },
+  {
+    slug: "mill-creek",
+    name: "Mill Creek",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Mill Creek",
+    metaTitle: "Seamless Gutter Installation in Mill Creek, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Mill Creek, WA. Master-planned neighborhoods, HOA color matching, heavy greenbelt needle drop. Call (253) 498-5575.",
+    lead:
+      "Mill Creek is one of the most consistently built cities we serve — a master-planned community wrapped around a golf course — and that consistency changes what a gutter job has to get right.",
+    areas: [
+      "Mill Creek Town Center",
+      "The Country Club",
+      "Silver Firs",
+      "Mill Creek East",
+      "North Creek greenbelts",
+    ],
+    homes:
+      "Most of Mill Creek went up from the 1980s onward under a master plan, so the housing is unusually uniform: two-story homes, similar rooflines, coordinated exterior palettes. That last part matters more than it sounds. A lot of Mill Creek is governed by an HOA with rules about exterior colors, and a gutter that doesn't match the trim it hangs on is the kind of thing that generates a letter. We color-match to the trim rather than defaulting to white, and if your association has an approved color list, bring it to the estimate — it costs nothing to get right the first time and is a genuine nuisance to redo.",
+    climate:
+      "The master plan kept mature evergreen greenbelts threaded between the neighborhoods, which is exactly what makes the place pleasant to live in and hard on gutters. Homes backing a greenbelt take continuous needle drop from full-height conifers, often onto a two-story roofline that no homeowner should be putting a ladder against twice a year. This is guard country, and the greenbelt lots are the clearest case for it anywhere in Snohomish County.",
+    issues: [
+      "HOA color rules that a default-white gutter quietly violates",
+      "Greenbelt-backing lots under continuous conifer needle drop",
+      "Two-story rooflines that make seasonal cleanouts genuinely unsafe",
+      "1980s-90s builder gutter systems reaching the end of their service life",
+    ],
+    nearby: ["lynnwood", "bothell", "mukilteo"],
+  },
+  {
+    slug: "edmonds",
+    name: "Edmonds",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Edmonds",
+    metaTitle: "Seamless Gutter Installation in Edmonds, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Edmonds, WA — the Bowl, Seaview, Perrinville, Westgate. Salt air, view homes, and older Craftsman stock. Call (253) 498-5575.",
+    lead:
+      "Edmonds is a water town, and it shows in the two things homeowners here ask about first: how the gutter will look from the street, and how long it will last in salt air.",
+    areas: [
+      "The Bowl",
+      "Downtown Edmonds",
+      "Seaview",
+      "Perrinville",
+      "Westgate",
+      "Esperance",
+      "Sunset Avenue bluff",
+    ],
+    homes:
+      "The Bowl — the older core sloping down toward the ferry terminal — is full of early-century Craftsman and 1940s-50s homes with steep pitches and original wood fascia, and it's the part of town where the gutter's profile and color are a real consideration rather than an afterthought. Seaview, Westgate, and Perrinville are largely mid-century ranches and split-levels on established lots. Along the bluff and Sunset Avenue there are view homes where the whole point is the sightline to the Sound, and an oversized gutter or a badly placed downspout cuts into what the owner paid for. Those jobs reward a company that will talk through profile and placement instead of just quoting linear feet.",
+    climate:
+      "Edmonds sits directly on Puget Sound, and salt air is a genuine material consideration — it shortens the life of low-grade fasteners and hangers, and it's unforgiving of bare or untreated fascia behind the gutter line. Add the bluff exposure, where wind comes off the water with nothing in the way, and you have a town where the hardware matters as much as the trough. Inland, the older neighborhoods carry heavy big-leaf maple, so fall brings a serious leaf dump on top of everything else.",
+    issues: [
+      "Salt-air corrosion on hangers, fasteners, and unprotected fascia",
+      "View homes where gutter profile and downspout placement affect the sightline",
+      "Original wood fascia behind gutters on Bowl-area Craftsman homes",
+      "Heavy fall maple leaf load in the established inland neighborhoods",
+    ],
+    nearby: ["lynnwood", "mukilteo", "mill-creek"],
+  },
+  {
+    slug: "mukilteo",
+    name: "Mukilteo",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Mukilteo",
+    metaTitle: "Seamless Gutter Installation in Mukilteo, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Mukilteo, WA — Harbour Pointe, Old Town, and the bluff. Salt air and wind-exposed view homes. Call (253) 498-5575.",
+    lead:
+      "Mukilteo is built on a bluff above the Sound, and between the salt air, the wind, and the slope, it asks more of a gutter system than most of the North Sound does.",
+    areas: [
+      "Harbour Pointe",
+      "Old Town Mukilteo",
+      "Mukilteo waterfront",
+      "Japanese Gulch",
+      "Chennault Beach",
+    ],
+    homes:
+      "Harbour Pointe is the bulk of the city — a large master-planned area built out from the late 1980s through the 2000s, mostly two-story view homes stepping down the hillside. Those elevations are tall, the lots are steep, and the rooflines are cut up enough that downspout count matters more than gutter size. Old Town, down near the ferry and the lighthouse, is older and smaller-scaled: modest homes, simpler rooflines, and the salt exposure at its worst because there's nothing between them and the water.",
+    climate:
+      "Two forces, both off the Sound. Salt air corrodes cheap hardware and finds any gap in the fascia's protection, which is why fastener and material choice is a real conversation on this side of the county rather than a default. Wind is the other: the bluff catches it with nothing upwind to break it, and wind-driven rain gets under and behind a gutter line in ways a sheltered inland house never deals with. Then the slope — on a hillside lot, water leaving a downspout at the foundation has somewhere to go, and it goes there fast.",
+    issues: [
+      "Salt-air corrosion on bluff and waterfront hardware",
+      "Wind-driven rain getting behind poorly hung gutter lines",
+      "Steep Harbour Pointe hillside lots where runoff needs real routing",
+      "Tall two-story view elevations that make DIY maintenance dangerous",
+    ],
+    nearby: ["edmonds", "mill-creek", "lynnwood"],
+  },
+  {
+    slug: "lynnwood",
+    name: "Lynnwood",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Lynnwood",
+    metaTitle: "Seamless Gutter Installation in Lynnwood, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Lynnwood, WA — Alderwood, city center, and the established postwar neighborhoods. Fair pricing, one-day installs. Call (253) 498-5575.",
+    lead:
+      "Lynnwood is a working, practical city, and our name tends to land well here — people want the job done properly without paying for somebody else's advertising budget.",
+    areas: [
+      "Alderwood",
+      "Lynnwood City Center",
+      "Meadowdale",
+      "Highway 99 corridor",
+      "196th Street corridor",
+    ],
+    homes:
+      "Lynnwood built out mainly in the 1950s through the 1970s, and the housing reflects it: ranches, ramblers, and split-levels on standard lots throughout the established neighborhoods. Those are honest, straightforward gutter jobs — long clean runs, single-story or split, formed on the driveway and hung in a day. What makes them worth doing right is that a great many are still on original gutters or on a cheap replacement done decades ago with spike-and-ferrule hardware that has been working loose ever since. Meadowdale, out toward the water, adds steeper lots and more tree cover to the mix, and the redevelopment around the city center and light rail brings taller, denser buildings on tighter sites.",
+    climate:
+      "Lynnwood's established neighborhoods have grown into their trees. The firs and maples planted around those 1960s ranches are sixty-odd years taller now, and a lot of homeowners are cleaning gutters far more often than they were when they bought the house. There's no salt exposure to speak of this far inland, so the constraint here is straightforwardly debris — leaves in the fall, needles the rest of the year, and a lot of low-pitch roofs where a clogged trough overflows straight down the siding.",
+    issues: [
+      "Spike-and-ferrule hardware failing on original postwar installs",
+      "Sixty years of canopy growth over homes built when the lots were open",
+      "Low-pitch ranch roofs where a clogged gutter overflows onto siding",
+      "Steeper, more heavily treed lots out toward Meadowdale",
+    ],
+    nearby: ["edmonds", "mill-creek", "mukilteo"],
+  },
+  {
+    slug: "mercer-island",
+    name: "Mercer Island",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Mercer Island",
+    metaTitle: "Seamless Gutter Installation on Mercer Island, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters on Mercer Island, WA. Heavy tree canopy, steep lakefront lots, mid-century and rebuilt homes. Call (253) 498-5575.",
+    lead:
+      "Mercer Island is the most heavily wooded place we work on the Eastside, and that single fact drives nearly every gutter conversation on the island.",
+    areas: [
+      "North end",
+      "East Seattle",
+      "Mercerdale",
+      "First Hill",
+      "South end",
+      "Island Crest corridor",
+    ],
+    homes:
+      "The island's housing runs from well-kept 1950s and 60s mid-century homes — some of them genuinely good architecture, with low pitches and broad overhangs — through to extensive rebuilds and remodels on the same lots. Both ends of that range share the same two constraints. Lots slope toward the water, often steeply, so downspout discharge has to be carried well clear rather than dropped at the foundation. And access is tight: narrow winding roads, long driveways, and mature landscaping that a crew has to work around rather than through. Low-pitch mid-century rooflines also mean slope and hanger spacing have to be exact, because a shallow roof gives you no margin for a trough that holds water.",
+    climate:
+      "Mercer Island takes its tree canopy seriously — the island has long-standing tree preservation rules, and the result is mature Douglas fir, cedar, and big-leaf maple standing over houses across the island. That's the whole ballgame for gutters here. Needle drop is continuous, the fall maple dump is heavy, and unlike the shoreline cities there's no salt air to worry about, because Lake Washington is fresh water. Debris protection isn't an upsell on this island; for most homes it's the difference between a system that works and one that's blocked by November.",
+    issues: [
+      "Continuous needle and leaf load from protected mature canopy",
+      "Steep lakeward lots needing runoff carried well clear of foundations",
+      "Low-pitch mid-century rooflines with no margin for imprecise slope",
+      "Tight access on narrow roads and around mature landscaping",
+    ],
+    nearby: ["bellevue", "kirkland", "sammamish"],
+  },
+  {
+    slug: "sammamish",
+    name: "Sammamish",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Sammamish",
+    metaTitle: "Seamless Gutter Installation in Sammamish, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Sammamish, WA — Klahanie, Pine Lake, Trossachs. Plateau snow load, big rooflines, heavy fir cover. Call (253) 498-5575.",
+    lead:
+      "Sammamish sits up on the plateau, and elevation changes the job — more weather, bigger houses, and more trees per lot than anywhere else on the Eastside.",
+    areas: [
+      "Klahanie",
+      "Pine Lake",
+      "Beaver Lake",
+      "Trossachs",
+      "Inglewood Hill",
+      "Sahalee",
+    ],
+    homes:
+      "Sammamish is almost entirely a 1990s-through-2010s city, and the housing is large: two-story and three-story homes with ambitious rooflines — multiple gables, dormers, hips, and long valleys. That design concentrates an enormous volume of water into short runs of gutter, and the single most common problem we find here isn't a worn-out gutter at all, it's a roof that never had enough downspouts to move what it sheds. Adding capacity in the right places usually does more for a Sammamish home than upsizing the trough would. The scale of these elevations also puts the gutter line well out of reach, which is worth thinking about before committing to twice-yearly cleanouts.",
+    climate:
+      "The plateau genuinely gets more weather than the lowlands below it — more snow in a cold snap, and freeze-thaw cycles that flat-country gutters never contend with. Ice sitting in a trough that couldn't drain is how a gutter ends up pulling away from the fascia, so slope and hanger spacing carry extra weight up here. Add the second-growth fir standing through Klahanie, Trossachs, and around Pine and Beaver Lakes, and you have continuous needle load on rooflines that are already asking a lot of their drainage.",
+    issues: [
+      "Large multi-gable rooflines with too few downspouts for the volume shed",
+      "Plateau snow and freeze-thaw cycles loading gutters and hangers",
+      "Continuous fir needle drop through Klahanie, Trossachs, and the lakes",
+      "Gutter lines high enough that homeowner cleanouts are a real risk",
+    ],
+    nearby: ["redmond", "bellevue", "mercer-island"],
+  },
 ];
 
 /* Questions are the ones people actually type or ask an assistant. Answers
@@ -394,6 +720,26 @@ const GUARD_ANSWERS = {
   graham:
     "Almost certainly. Graham has the heaviest needle load of anywhere we work, and for most homeowners here guards cost less over five years than the cleanouts they replace. Micro-mesh, not screen — fir needles walk right through coarse mesh.",
   roy: "Out on the prairie there's less overhead canopy than in the wooded parts of the county, so guards are more of a judgment call. Properties with a treeline or mature windbreak near the house are the ones where they earn their keep.",
+  bellevue:
+    "Depends which Bellevue you're in. Under the fir canopy in Bridle Trails or backing the Lake Hills greenbelt, guards pay for themselves. On an open Factoria or Wilburton lot with nothing overhanging the roof, we'll tell you to skip them.",
+  kirkland:
+    "Usually worth it above the lake, where the older streets and Finn Hill carry mature maple and fir — that combination gives you a heavy fall leaf dump on top of year-round needles. Newer townhomes with no established trees nearby are the exception.",
+  redmond:
+    "Generally yes, and the type matters. Redmond's debris is mostly fine fir needles off the watershed and the neighborhood conifers, and needles that fine go straight through a coarse screen. Micro-mesh or don't bother.",
+  bothell:
+    "For anything backing a greenbelt or sitting under the North Creek conifers, yes. Bothell's more open valley-floor lots are a closer call — there the drainage question usually matters more than the debris one.",
+  "mill-creek":
+    "If your lot backs a greenbelt, this is the clearest yes on our whole service map: full-height conifers dropping onto a two-story roofline you should not be laddering up to twice a year. Interior lots with less cover, we'll give you an honest read.",
+  edmonds:
+    "Often, especially inland where the big-leaf maples come down all at once in the fall — a matted layer of wet maple leaf will block a downspout inlet completely. On the exposed bluff there's less overhead cover and it becomes optional.",
+  mukilteo:
+    "It varies more here than most places. Harbour Pointe lots against the gulch or a stand of firs benefit clearly; open bluff lots facing the water have little overhanging them, and there the hardware and how the gutter is hung matter far more than guards.",
+  lynnwood:
+    "For most established Lynnwood neighborhoods, yes. The trees planted around those postwar ranches are sixty years bigger now, and homeowners here are usually cleaning gutters more often than they expected to be.",
+  "mercer-island":
+    "On Mercer Island, yes, for nearly every home. Protected mature canopy across the island means continuous needle drop plus a heavy fall maple load, and there's no version of that a bare open gutter handles well.",
+  sammamish:
+    "Yes, and for a reason beyond debris: these rooflines are high. Even setting aside the fir needle load from Klahanie and the lakes, guards on a three-story Sammamish elevation are as much a safety decision as a maintenance one.",
 };
 
 SERVICE_AREAS.forEach((a) => {
@@ -414,6 +760,18 @@ export const SERVICE_AREA_COUNTIES = [
     name: "Pierce County",
     blurb:
       "Our home county and the bulk of our book of work. Tacoma is where the shop is; the rest of the county is a short drive from it.",
+  },
+  {
+    slug: "king-county",
+    name: "King County",
+    blurb:
+      "The Eastside and the cities around Lake Washington. Older mid-century stock in the established neighborhoods, ambitious rooflines on everything built since — and more standing fir than people expect this close to Seattle.",
+  },
+  {
+    slug: "snohomish-county",
+    name: "Snohomish County",
+    blurb:
+      "The North Sound corridor. Salt air along the water in Edmonds and Mukilteo, master-planned neighborhoods and greenbelt conifers inland, and a lot of postwar housing still on its original gutters.",
   },
 ];
 

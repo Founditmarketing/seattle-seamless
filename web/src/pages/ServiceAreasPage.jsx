@@ -21,7 +21,8 @@ import { SITE } from "../data/site";
  * Cities WITHOUT a landing page are still listed, as plain text rather
  * than dead links. We serve them; we just haven't written their page yet.
  * Listing them keeps the coverage claim honest and gives the next batch of
- * pages an obvious home. (Tier 2 — the North Sound markets — is next.)
+ * pages an obvious home. (Tiers 1 and 2 have pages; tier 3 — the outer
+ * Thurston / Kitsap / Mason ring — is what's left.)
  */
 export default function ServiceAreasPage() {
   const { county } = useParams();
@@ -33,6 +34,12 @@ export default function ServiceAreasPage() {
 
   const path = countyMeta ? `/service-areas/${countyMeta.slug}/` : "/service-areas/";
   const linked = countyMeta ? areasInCounty(countyMeta.slug) : SERVICE_AREAS;
+
+  /* One group per county on the hub, a single unlabelled group on a
+   * county page. Counties with no city pages yet never appear. */
+  const groups = (countyMeta ? [countyMeta] : SERVICE_AREA_COUNTIES)
+    .map((c) => ({ slug: c.slug, name: c.name, cities: areasInCounty(c.slug) }))
+    .filter((g) => g.cities.length > 0);
 
   /* Every city we serve that doesn't yet have its own page. */
   const linkedNames = new Set(SERVICE_AREAS.map((a) => a.name));
@@ -90,9 +97,12 @@ export default function ServiceAreasPage() {
         ]}
       />
 
-      {/* ── LINKED CITY PAGES ── */}
+      {/* ── LINKED CITY PAGES ──
+           The all-counties view groups by county; twenty cards in one flat
+           run reads as a dump and buries the county structure the URLs
+           already encode. A county view is a single grid. */}
       <section className="py-[var(--space-section-md)] max-w-[var(--max-content)] mx-auto px-[var(--space-page-x)]">
-        <Eyebrow>{countyMeta ? countyMeta.name : "Pierce County"}</Eyebrow>
+        <Eyebrow>{countyMeta ? countyMeta.name : "City by City"}</Eyebrow>
         <h2 className="font-display-black uppercase text-display-sm text-[var(--color-royal)] mt-4 mb-3">
           Where we work <span className="text-[var(--color-copper)]">most.</span>
         </h2>
@@ -101,28 +111,45 @@ export default function ServiceAreasPage() {
           the gutter problems that actually come up there.
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {linked.map((a) => (
-            <Link
-              key={a.slug}
-              to={`/service-areas/${a.countySlug}/${a.slug}/`}
-              className="haptic group bg-[var(--color-paper)] border border-[var(--color-line)] rounded-[var(--radius-card)] p-6 hover:border-[var(--color-copper)] transition-colors"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <MapPin className="w-4 h-4 text-[var(--color-copper)]" />
-                <h3 className="font-display text-lg text-[var(--color-royal)]">
-                  {a.name}, {SITE.address.region}
+        {groups.map((group, gi) => (
+          <div key={group.slug} className={gi > 0 ? "mt-12" : ""}>
+            {groups.length > 1 && (
+              <div className="flex items-baseline justify-between gap-4 mb-5 pb-3 border-b border-[var(--color-line)]">
+                <h3 className="font-display text-xl text-[var(--color-royal)]">
+                  {group.name}
                 </h3>
+                <Link
+                  to={`/service-areas/${group.slug}/`}
+                  className="haptic inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-slate)]/70 hover:text-[var(--color-copper)] transition-colors shrink-0"
+                >
+                  County overview <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-              <p className="text-[var(--color-slate)]/70 text-sm leading-relaxed mb-4">
-                {a.lead}
-              </p>
-              <span className="inline-flex items-center gap-1.5 text-[13px] font-display-bold uppercase tracking-tight text-[var(--color-royal)] group-hover:text-[var(--color-copper)] transition-colors">
-                Gutters in {a.name} <ArrowRight className="w-3.5 h-3.5" />
-              </span>
-            </Link>
-          ))}
-        </div>
+            )}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {group.cities.map((a) => (
+                <Link
+                  key={a.slug}
+                  to={`/service-areas/${a.countySlug}/${a.slug}/`}
+                  className="haptic group bg-[var(--color-paper)] border border-[var(--color-line)] rounded-[var(--radius-card)] p-6 hover:border-[var(--color-copper)] transition-colors"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <MapPin className="w-4 h-4 text-[var(--color-copper)]" />
+                    <h4 className="font-display text-lg text-[var(--color-royal)]">
+                      {a.name}, {SITE.address.region}
+                    </h4>
+                  </div>
+                  <p className="text-[var(--color-slate)]/70 text-sm leading-relaxed mb-4">
+                    {a.lead}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-[13px] font-display-bold uppercase tracking-tight text-[var(--color-royal)] group-hover:text-[var(--color-copper)] transition-colors">
+                    Gutters in {a.name} <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* ── EVERYWHERE ELSE ── honest coverage list, no dead links ── */}
@@ -176,7 +203,9 @@ export default function ServiceAreasPage() {
                 <span className="text-sm font-medium text-[var(--color-royal)]">{c}</span>
               </>
             );
-            return hub ? (
+            /* Don't link the county we're already on — a self-referential
+             * link is noise for a reader and a crawler alike. */
+            return hub && hub.slug !== county ? (
               <Link
                 key={c}
                 to={`/service-areas/${hub.slug}/`}
