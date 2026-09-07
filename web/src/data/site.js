@@ -6,7 +6,7 @@
 
 /* Canonical numbers used anywhere on the site. Owner-confirmed values:
  *  - 21+ years in business (LLC founded ~2005)
- *  - 539 Google reviews
+ *  - 554 Google reviews
  *  - 5.0 ★ Google rating
  *  - 6 counties served
  *  - lifetime install count: not yet confirmed, displays as "Thousands"
@@ -53,8 +53,12 @@ export const SITE = {
   rating: {
     value: 5.0,
     /* Live count from Google's knowledge panel for Seamless Gutters 4 Less,
-     * Tacoma, WA (confirmed 2026-08-14, previously 496 on 2026-05-13). */
-    count: 539,
+     * Tacoma, WA (confirmed 2026-09-07; 539 on 2026-08-14, 496 on
+     * 2026-05-13). This number is emitted in aggregateRating JSON-LD, so
+     * it should only ever move up and only ever to a real observed value
+     * — a review count that drops, or that Google can't corroborate, is
+     * exactly the kind of thing that costs a rich result. */
+    count: 554,
     source: "Google",
   },
 
