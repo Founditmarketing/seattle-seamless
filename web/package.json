@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/gen-sitemap.mjs && vite build",
+    "build": "node scripts/gen-sitemap.mjs && vite build && npm run build:ssr && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-images.mjs",
@@ -15,7 +15,9 @@
     "encode:videos": "node scripts/encode-videos.mjs",
     "gen:veteran-seal": "node scripts/gen-veteran-seal.mjs",
     "gen:trade-stamps": "node scripts/gen-trade-stamps.mjs",
-    "gen:jobs": "node scripts/gen-jobs.mjs"
+    "gen:jobs": "node scripts/gen-jobs.mjs",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.51.0",

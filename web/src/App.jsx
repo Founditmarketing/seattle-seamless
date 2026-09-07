@@ -1,41 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PageLayout from "./components/PageLayout";
-import HomePage from "./pages/HomePage";
-import ServicePage from "./pages/ServicePage";
-import ServiceAreasPage from "./pages/ServiceAreasPage";
-import ServiceAreaPage from "./pages/ServiceAreaPage";
-import AboutPage from "./pages/AboutPage";
-import GalleryPage from "./pages/GalleryPage";
-import ReviewsPage from "./pages/ReviewsPage";
-import ContactPage from "./pages/ContactPage";
-import FaqPage from "./pages/FaqPage";
-import BlogPage from "./pages/BlogPage";
-import BlogPostPage from "./pages/BlogPostPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./AppRoutes";
 
+/* Browser entry. The route table lives in AppRoutes so the build-time
+ * prerender (entry-server.jsx) can render the identical tree under a
+ * StaticRouter. */
 export default function App() {
   return (
     <BrowserRouter>
-      <PageLayout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services/:slug/*" element={<ServicePage />} />
-          {/* Service areas: hub → county hub → city landing page.
-              Order matters — the two-segment city route must be declared
-              before the one-segment county route can swallow it. */}
-          <Route path="/service-areas/:county/:city/*" element={<ServiceAreaPage />} />
-          <Route path="/service-areas/:county/*" element={<ServiceAreasPage />} />
-          <Route path="/service-areas/*" element={<ServiceAreasPage />} />
-          <Route path="/about/*" element={<AboutPage />} />
-          <Route path="/gallery/*" element={<GalleryPage />} />
-          <Route path="/reviews/*" element={<ReviewsPage />} />
-          <Route path="/contact/*" element={<ContactPage />} />
-          <Route path="/faq/*" element={<FaqPage />} />
-          <Route path="/blog/:slug/*" element={<BlogPostPage />} />
-          <Route path="/blog/*" element={<BlogPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </PageLayout>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
