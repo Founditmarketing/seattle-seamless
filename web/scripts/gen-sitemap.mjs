@@ -4,12 +4,15 @@
  * Run automatically as part of `vite build`. Also runnable on its own
  * via `node scripts/gen-sitemap.mjs` for testing.
  *
- * Today this is a hand-rolled route list because we don't have a router
- * config we can introspect from Node. When city/service-area pages land
- * (sg4l-plan.md §7), add them to the SERVICE_AREA_PAGES block below.
+ * The static routes are a hand-rolled list because we don't have a router
+ * config we can introspect from Node. The service-area routes are NOT
+ * hand-rolled — they're imported from src/data/serviceAreas.js, the same
+ * module the pages render from, so a new city page can never ship missing
+ * from the sitemap. Keep that file free of React imports for this to work.
  */
 
 import { writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { SERVICE_AREA_PATHS } from "../src/data/serviceAreas.js";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -47,6 +50,14 @@ const PAGES = [
     loc: `/services/${slug}/`,
     changefreq: "monthly",
     priority: 0.9,
+  })),
+  /* Service-area pages (sg4l-plan.md §7). The hub sits a notch below the
+   * service pages; individual city pages carry the same weight as a
+   * service page because they're the local-search entry points. */
+  ...SERVICE_AREA_PATHS.map((loc) => ({
+    loc,
+    changefreq: "monthly",
+    priority: loc.split("/").filter(Boolean).length >= 3 ? 0.9 : 0.7,
   })),
 ];
 

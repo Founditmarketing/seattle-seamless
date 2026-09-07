@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import HomePage from "./pages/HomePage";
 import ServicePage from "./pages/ServicePage";
+import ServiceAreasPage from "./pages/ServiceAreasPage";
+import ServiceAreaPage from "./pages/ServiceAreaPage";
 import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
 import ReviewsPage from "./pages/ReviewsPage";
@@ -18,6 +20,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services/:slug/*" element={<ServicePage />} />
+          {/* Service areas: hub → county hub → city landing page.
+              Order matters — the two-segment city route must be declared
+              before the one-segment county route can swallow it. */}
+          <Route path="/service-areas/:county/:city/*" element={<ServiceAreaPage />} />
+          <Route path="/service-areas/:county/*" element={<ServiceAreasPage />} />
+          <Route path="/service-areas/*" element={<ServiceAreasPage />} />
           <Route path="/about/*" element={<AboutPage />} />
           <Route path="/gallery/*" element={<GalleryPage />} />
           <Route path="/reviews/*" element={<ReviewsPage />} />

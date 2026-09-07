@@ -1,4 +1,4 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { Phone, ArrowRight, CheckCircle, MapPin } from "lucide-react";
 import Eyebrow from "../components/atoms/Eyebrow";
 import ResponsiveImg from "../components/atoms/ResponsiveImg";
@@ -6,6 +6,7 @@ import SchemaJsonLd from "../components/SchemaJsonLd";
 import PageSEO from "../components/PageSEO";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
 import { SERVICES } from "../data/services";
+import { SERVICE_AREAS } from "../data/serviceAreas";
 import { SITE } from "../data/site";
 
 /*
@@ -315,6 +316,31 @@ export default function ServicePage() {
               <span className="text-sm font-medium text-[var(--color-royal)]">{county}</span>
             </div>
           ))}
+        </div>
+
+        {/* City-level internal links — each of these pages covers the
+            housing stock and gutter problems specific to that city. */}
+        <div className="mt-8">
+          <p className="text-[var(--color-slate)]/70 text-sm mb-4">
+            {service.title} in your city:
+          </p>
+          <div className="flex flex-wrap gap-2.5">
+            {SERVICE_AREAS.map((a) => (
+              <Link
+                key={a.slug}
+                to={`/service-areas/${a.countySlug}/${a.slug}/`}
+                className="haptic inline-flex items-center gap-1.5 px-3.5 py-2 bg-[var(--color-royal-tint)] rounded-full text-[13px] font-medium text-[var(--color-royal)] hover:text-[var(--color-copper)] transition-colors"
+              >
+                {a.name}
+              </Link>
+            ))}
+            <Link
+              to="/service-areas/"
+              className="haptic inline-flex items-center gap-1.5 px-3.5 py-2 border border-[var(--color-line)] rounded-full text-[13px] font-medium text-[var(--color-royal)] hover:border-[var(--color-copper)] transition-colors"
+            >
+              All service areas <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 
