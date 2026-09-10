@@ -18,11 +18,11 @@ import { SITE } from "../data/site";
  *   /service-areas/            → every county, with linked city pages
  *   /service-areas/:county/    → one county's cities
  *
- * Cities WITHOUT a landing page are still listed, as plain text rather
- * than dead links. We serve them; we just haven't written their page yet.
- * Listing them keeps the coverage claim honest and gives the next batch of
- * pages an obvious home. (Tiers 1 and 2 have pages; tier 3 — the outer
- * Thurston / Kitsap / Mason ring — is what's left.)
+ * The "also served" section lists any city we serve that doesn't yet have
+ * a page, as plain text rather than dead links. Every city in cities.js
+ * has a page now, so it renders empty and disappears — the code stays
+ * because the next city added to cities.js will land there first, and a
+ * coverage claim with no page behind it should still be visible.
  */
 export default function ServiceAreasPage() {
   const { county } = useParams();

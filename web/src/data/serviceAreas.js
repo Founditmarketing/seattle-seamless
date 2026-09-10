@@ -1,23 +1,29 @@
 /*
- * Service-area landing pages — one per Tier 1 and Tier 2 city
- * (sg4l-plan.md §7).
+ * Service-area landing pages — one per city in data/cities.js, all three
+ * tiers (sg4l-plan.md §7).
  *
  * URL shape follows the plan: /service-areas/[county]/[city]/, with a
  * county hub at /service-areas/[county]/ and a top-level hub at
  * /service-areas/. Nesting the county keeps the door open for the
  * [city]/[service] matrix the plan wants later without re-cutting URLs.
  *
- * WHICH CITIES: data/cities.js tiers 1 and 2 — 10 Pierce County markets
- * (tier 1, Doug's core book of work) plus 10 North Sound markets across
- * King and Snohomish (tier 2). Note that sg4l-plan.md §7 lists a DIFFERENT
- * tier 1, the 17 north-Seattle / Eastside cities from the original brief;
- * cities.js is the corrected, later source of truth and its header says
- * tier 1 ships service-area pages first, so we follow the data, not the
- * plan doc. Tier 3 (17 outer Thurston / Kitsap / Mason cities) is what
- * remains, and is genuinely lower value — thinner demand, and we'd be
- * stretching for things that are true and specific about each town.
- * Consider the plan's [city]/[service] matrix for the strongest markets
- * before grinding out tier 3.
+ * WHICH CITIES: all 37 in data/cities.js — tier 1 (10 Pierce County
+ * markets, Doug's core book), tier 2 (10 North Sound across King and
+ * Snohomish), tier 3 (17 outer cities across Snohomish, King, Thurston,
+ * Kitsap, and Mason). Note that sg4l-plan.md §7 lists a DIFFERENT tier 1,
+ * the 17 north-Seattle / Eastside cities from the original brief;
+ * cities.js is the corrected, later source of truth, so we follow the
+ * data, not the plan doc.
+ *
+ * Geographic coverage is now complete: every city the site claims to
+ * serve has a page. Adding a city here means adding it to cities.js
+ * first, and it should be a place we genuinely work — the coverage list
+ * and this file are the same promise.
+ *
+ * The tier 3 pages are honestly shorter than tier 1 and 2, because
+ * Belfair and Kingston have less to truthfully say than Tacoma does.
+ * That is the right outcome. Padding a small town's page to match a
+ * city's word count is how a cluster like this turns into filler.
  *
  * CONTENT RULES — read before adding a city:
  *   1. Every claim here must be TRUE. Housing stock, geography, tree cover,
@@ -672,6 +678,423 @@ export const SERVICE_AREAS = [
     ],
     nearby: ["redmond", "bellevue", "mercer-island"],
   },
+  /* ── TIER 3 — the outer ring. Added 2026-09-10.
+   *
+   * Thurston, Kitsap, and Mason join the county hubs here, plus the outer
+   * Snohomish and King cities. These are honestly shorter pages than tier
+   * 1 and 2, and deliberately so: Belfair and Kingston have less housing-
+   * stock variety to describe than Tacoma does, and padding them to match
+   * word counts would produce exactly the filler this cluster has avoided.
+   * Where a town's real story is its geography and tree cover rather than
+   * its architecture, the page says that and stops. */
+  {
+    slug: "everett",
+    name: "Everett",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Everett",
+    metaTitle: "Seamless Gutter Installation in Everett, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Everett, WA — historic Rucker Hill, postwar south Everett, and waterfront salt air. Installation, replacement, guards. Call (253) 498-5575.",
+    lead:
+      "Everett has a wider spread of housing ages than anywhere else in Snohomish County, and the gutter work changes street to street because of it.",
+    areas: ["Northwest Everett", "Rucker Hill", "Bayside", "Riverside", "Silver Lake", "South Everett"],
+    homes:
+      "Northwest Everett and Rucker Hill hold the city's oldest and best housing — early-1900s Craftsman and larger historic homes with steep pitches, deep overhangs, and original wood fascia that has been behind a gutter line for a century. Those need the fascia looked at before anything gets hung. South Everett and the Silver Lake area are a different era entirely: postwar and 1960s-80s stock, simpler rooflines, and a lot of original or long-neglected gutter systems on rental and investment property where nobody has looked at the drainage in decades. Down toward the waterfront and up on the bluff over Port Gardner there are view homes where profile and downspout placement matter as much as capacity.",
+    climate:
+      "Everett is a working waterfront city, and the homes near the water and on the bluff take salt air straight off Port Gardner — the same hardware problem Edmonds and Mukilteo have. Inland, the older neighborhoods carry mature maple and fir that have grown well past the scale of the houses they shade, so debris load is heavy in the historic core and lighter in the newer south-end subdivisions.",
+    issues: [
+      "Century-old fascia behind original gutters in Northwest Everett and Rucker Hill",
+      "Long-deferred maintenance on south Everett rental and investment property",
+      "Salt-air corrosion on waterfront and bluff hardware",
+      "Heavy maple and fir load over the older, more shaded streets",
+    ],
+    nearby: ["mukilteo", "marysville", "lynnwood"],
+  },
+  {
+    slug: "marysville",
+    name: "Marysville",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Marysville",
+    metaTitle: "Seamless Gutter Installation in Marysville, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Marysville, WA. Flat delta ground makes downspout routing the real job. Installation, replacement, and guards. Call (253) 498-5575.",
+    lead:
+      "Marysville grew fast and mostly recently, which means the gutters are usually fine — it's where the water goes afterward that needs attention.",
+    areas: ["Downtown Marysville", "Sunnyside", "Kellogg Marsh", "Getchell", "Smokey Point"],
+    homes:
+      "Most of Marysville is 1990s-through-2010s subdivision housing, two-story homes with the multi-gable rooflines of that period, plus an older small-town core near downtown. On the newer stock the trough itself is often serviceable and the problem is a builder who fitted the minimum number of downspouts a cut-up roof could get away with. Out toward Getchell and the eastern edge the lots get larger and more wooded, with shops and detached garages that need drainage too.",
+    climate:
+      "The defining local factor is how flat much of Marysville is. Sitting near the Snohomish delta on low, level ground with a high water table in places, runoff put down at a foundation has nowhere to go — it pools. Extensions and proper routing to grade matter more here than gutter sizing does, and any bid that doesn't mention discharge on flat ground is incomplete.",
+    issues: [
+      "Builder-minimum downspout counts on 90s-2010s subdivision rooflines",
+      "Flat, low ground where runoff pools instead of soaking away",
+      "Outbuildings on the larger eastern lots left undrained",
+      "Aging builder-grade hangers reaching end of service life",
+    ],
+    nearby: ["everett", "lake-stevens", "mukilteo"],
+  },
+  {
+    slug: "lake-stevens",
+    name: "Lake Stevens",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Lake Stevens",
+    metaTitle: "Seamless Gutter Installation in Lake Stevens, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Lake Stevens, WA — hillside lots above the lake and converted lakefront cabins. Installation and guards. Call (253) 498-5575.",
+    lead:
+      "Everything in Lake Stevens drains toward the lake, and on the slopes above it that fact decides how a gutter system has to be designed.",
+    areas: ["Lake Stevens waterfront", "Frontier Village", "Hillcrest", "Soper Hill", "Machias"],
+    homes:
+      "The lakefront holds older cabins that have been expanded into year-round homes over decades, and those additions leave rooflines that drain in ways nobody planned — valleys emptying onto a lower roof, or a run with no downspout anywhere near where the water lands. Above the lake, the hillsides filled in through the 2000s with standard two-story subdivision housing. Those are straightforward replacements; the wrinkle is that they sit on a grade.",
+    climate:
+      "On a slope running down to a lake, runoff discharged at the foundation doesn't sit and soak — it travels, and it carries soil with it toward whatever is downhill. Getting discharge routed well clear is the substance of the work here. Tree cover is moderate to heavy depending on the lot, with second-growth fir through the older lakeside streets.",
+    issues: [
+      "Expanded lakefront cabins with rooflines that drain unpredictably",
+      "Hillside lots where runoff erodes rather than soaks away",
+      "Subdivision gutters on 2000s builds now aging out",
+      "Fir needle load on the wooded lakeside streets",
+    ],
+    nearby: ["marysville", "snohomish", "everett"],
+  },
+  {
+    slug: "snohomish",
+    name: "Snohomish",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Snohomish",
+    metaTitle: "Seamless Gutter Installation in Snohomish, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Snohomish, WA — historic Victorians, valley farmhouses, and barns. Careful work on old trim. Call (253) 498-5575.",
+    lead:
+      "Snohomish has the best-preserved historic housing in the county and a working river valley around it, and both need a gutter crew that slows down.",
+    areas: ["Historic downtown", "Snohomish River valley", "Pilchuck", "Three Lakes", "Cathcart"],
+    homes:
+      "The historic district is full of genuine Victorian-era homes — decorative trim, bracket detail, steep complex rooflines — and they are exactly the houses a fast crew damages. This is hand work, with the profile and color chosen to suit the house rather than whatever's standard on the truck. Fascia on homes this old is frequently original, and often cedar, which is worth checking before hanging anything. Out in the valley it's farm property: farmhouses, barns, equipment sheds, and outbuildings that shed serious volume and are usually left off other people's estimates.",
+    climate:
+      "The Snohomish River valley floods, and that shapes the priorities: on low valley ground, where a downspout discharges is a more consequential decision than what size the trough is. The valley also carries big deciduous trees along the river corridor, so fall brings a heavy leaf dump. One more local note worth knowing — cedar shake and cedar fascia are common on the older stock here, and cedar hidden behind a leaking gutter rots quietly for years before anyone sees it.",
+    issues: [
+      "Victorian-era trim and bracket detail that careless work destroys",
+      "Original cedar fascia rotting unseen behind old gutter lines",
+      "Barns and outbuildings shedding large volumes unmanaged",
+      "Valley flood ground where discharge placement is critical",
+    ],
+    nearby: ["monroe", "lake-stevens", "everett"],
+  },
+  {
+    slug: "monroe",
+    name: "Monroe",
+    county: "Snohomish",
+    countySlug: "snohomish-county",
+    photoCity: "Monroe",
+    metaTitle: "Seamless Gutter Installation in Monroe, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Monroe, WA — Skykomish valley farm property and hillside subdivisions. Outbuildings included. Call (253) 498-5575.",
+    lead:
+      "Monroe sits where the Skykomish valley meets the foothills, and it rains harder here than it does out on the Sound.",
+    areas: ["Downtown Monroe", "Skykomish valley", "Fryelands", "Chain Lake", "Woods Creek"],
+    homes:
+      "Monroe splits between valley agricultural property and newer subdivision housing on the higher ground. The farm side means outbuildings — barns, shops, equipment sheds — that shed a lot of water and are routinely left off gutter estimates even though unmanaged runoff next to a working yard or a foundation causes problems all winter. The subdivisions are standard 1990s-onward two-story stock where downspout capacity, not trough size, is usually what needs correcting.",
+    climate:
+      "Moving east from the Sound toward the Cascades means more precipitation, and Monroe is far enough up the valley to feel it. More rain on a roof is a straightforward argument for correctly sized troughs and enough downspouts, and the foothill tree cover — heavier conifer than the lowland cities — adds continuous needle load on top of it.",
+    issues: [
+      "Higher foothill rainfall demanding real capacity, not minimum sizing",
+      "Farm outbuildings shedding volume with no drainage at all",
+      "Conifer needle load heavier than the lowland cities see",
+      "Subdivision rooflines short on downspouts for what they shed",
+    ],
+    nearby: ["snohomish", "lake-stevens", "woodinville"],
+  },
+  {
+    slug: "issaquah",
+    name: "Issaquah",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Issaquah",
+    metaTitle: "Seamless Gutter Installation in Issaquah, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Issaquah, WA — Highlands HOA colors, steep forested lots at the foot of the Alps, creek stormwater. Call (253) 498-5575.",
+    lead:
+      "Issaquah sits at the foot of three mountains, and the tree cover and the grade drive nearly every decision on a gutter job here.",
+    areas: ["Issaquah Highlands", "Olde Town", "Squak Mountain", "Talus", "Providence Point", "Issaquah Creek"],
+    homes:
+      "The Highlands and Talus are large master-planned communities built from the 2000s onward, and like Mill Creek they come with HOA rules about exterior colors — a default-white gutter on a facade with an approved palette is the kind of thing that generates a letter, so bring your color list to the estimate. Their rooflines are also ambitious, with the multiple gables and long valleys that concentrate water into short runs. Olde Town and the older streets nearer the creek are smaller-scaled and older, and the lots climbing Squak and Tiger Mountain are steep and heavily forested.",
+    climate:
+      "This is one of the most heavily treed cities we serve — the Issaquah Alps put mature conifer directly over houses, and fine needle drop is continuous rather than seasonal. Micro-mesh is the honest recommendation on almost any forested lot here. The grade compounds it: on a mountainside lot, runoff leaving a downspout travels fast, and Issaquah Creek and its tributaries mean the city genuinely cares where stormwater ends up, so routing discharge properly isn't just good practice.",
+    issues: [
+      "HOA exterior color rules in the Highlands and Talus",
+      "Continuous conifer needle drop from the surrounding Alps",
+      "Steep mountainside lots where discharge routing is critical",
+      "Cut-up master-plan rooflines short on downspout capacity",
+    ],
+    nearby: ["sammamish", "bellevue", "north-bend"],
+  },
+  {
+    slug: "woodinville",
+    name: "Woodinville",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Woodinville",
+    metaTitle: "Seamless Gutter Installation in Woodinville, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Woodinville, WA — Hollywood Hill acreage, big firs, and valley-floor drainage. Installation and guards. Call (253) 498-5575.",
+    lead:
+      "Woodinville is acreage-and-firs country with a valley floor running through it, and the two halves need different things.",
+    areas: ["Hollywood Hill", "Sammamish River valley", "Cottage Lake", "Wellington", "Downtown Woodinville"],
+    homes:
+      "Up on Hollywood Hill and out toward Cottage Lake the lots are large and wooded, with custom homes, long driveways, and frequently a shop or detached garage that also needs drainage. Access matters on jobs like these — forming a continuous run on site needs somewhere to set up, and a long gravel drive on soft ground in February is a real constraint worth planning around. On the valley floor the ground is low and wet, which moves discharge routing to the top of the list.",
+    climate:
+      "Woodinville keeps more of its original tree cover than most King County cities, and mature Douglas fir standing over a house means continuous fine needle drop — the debris that passes straight through a coarse screen and mats at the downspout. The Sammamish River valley through the middle of town stays wet well into spring, so on low ground runoff dumped at a foundation simply sits.",
+    issues: [
+      "Heavy fir needle load on wooded Hollywood Hill and Cottage Lake lots",
+      "Shops and detached garages left off other estimates",
+      "Wet valley floor where discharge has to be carried clear",
+      "Access and setup constraints on long rural driveways",
+    ],
+    nearby: ["bothell", "redmond", "monroe"],
+  },
+  {
+    slug: "shoreline",
+    name: "Shoreline",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Shoreline",
+    metaTitle: "Seamless Gutter Installation in Shoreline, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Shoreline, WA — postwar ramblers under sixty years of canopy growth, plus Richmond Beach bluff. Call (253) 498-5575.",
+    lead:
+      "Shoreline is a postwar suburb whose trees grew up around it, and that mismatch is most of the gutter work here.",
+    areas: ["Richmond Beach", "Innis Arden", "Echo Lake", "Ridgecrest", "North City", "Briarcrest"],
+    homes:
+      "Shoreline built out mainly in the 1940s through the 1960s: ramblers and modest two-storeys on compact lots, block after block of them. Those are honest, straightforward gutter jobs — clean runs, single-story or split, formed on the driveway and hung in a day. What makes them worth doing properly is that a great many are still on original hardware or a cheap replacement done decades ago, and spike-and-ferrule hangers have been working loose ever since. Richmond Beach and Innis Arden add bluff lots above Puget Sound, where the exposure is a different problem.",
+    climate:
+      "The trees planted around those 1950s houses are seventy years taller now, and Shoreline's established streets have a genuinely mature canopy of fir and big-leaf maple over small lots. The result is a debris load the original 5-inch gutters were never sized for, and homeowners cleaning them more often than they expected to. Out on the Richmond Beach bluff you get salt air and wind off the Sound instead, which shifts the emphasis to hardware and how the run is braced.",
+    issues: [
+      "Spike-and-ferrule hardware failing on original postwar installs",
+      "Seventy years of canopy growth over small mid-century lots",
+      "Undersized original troughs for the debris load they now carry",
+      "Salt air and wind exposure on the Richmond Beach bluff",
+    ],
+    nearby: ["edmonds", "lynnwood", "bothell"],
+  },
+  {
+    slug: "covington",
+    name: "Covington",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "Covington",
+    metaTitle: "Seamless Gutter Installation in Covington, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Covington, WA. Builder-grade subdivision systems from the 90s and 2000s, now aging out. Call (253) 498-5575.",
+    lead:
+      "Covington is a young city built almost entirely of subdivisions, and its gutter systems are all reaching the same age at the same time.",
+    areas: ["Covington Town Center", "Timberlane", "Jenkins Creek", "Lake Meridian edge", "Kent-Kangley corridor"],
+    homes:
+      "Nearly all of Covington went up from the 1990s onward as platted subdivisions — two-story homes, multiple gables, and the builder-grade gutter systems that came standard with them. Those systems are now hitting the point where hangers pull away from the fascia and seams open at the corners, which is why replacement rather than repair is usually the honest recommendation. The two things worth getting right are downspout count, because these rooflines concentrate volume into short runs, and hanger quality, because the originals were chosen on price.",
+    climate:
+      "Covington is far enough inland that salt air isn't a factor, and much of it is flat enough that slope isn't either. What's left is debris and capacity. Lots backing onto the Jenkins Creek greenbelt or a retained stand of fir take real needle load; interior subdivision lots with young landscaping often take very little, and on those a guard is a line item that buys you little. We'll tell you which one you have.",
+    issues: [
+      "Builder-grade 90s and 2000s systems failing at hangers and seams",
+      "Downspout counts set by builder minimums, not by roof volume",
+      "Greenbelt-backing lots with real needle load, interior lots with almost none",
+      "Original hardware chosen on price rather than service life",
+    ],
+    nearby: ["puyallup", "bonney-lake", "issaquah"],
+  },
+  {
+    slug: "north-bend",
+    name: "North Bend",
+    county: "King",
+    countySlug: "king-county",
+    photoCity: "North Bend",
+    metaTitle: "Seamless Gutter Installation in North Bend, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in North Bend, WA. Snoqualmie Valley rainfall and snow load ask more of a gutter than the lowlands do. Call (253) 498-5575.",
+    lead:
+      "North Bend sits under Mount Si in the Snoqualmie Valley, and it gets substantially more weather than anywhere else on our service map.",
+    areas: ["Downtown North Bend", "Si View", "Tanner", "Snoqualmie River valley", "Mount Si foothills"],
+    homes:
+      "The town core is older and modest — small footprints, simple rooflines, and gutter systems that in many cases are original to the house. Around it are newer subdivisions from the 1990s onward, plus valley acreage with farm buildings and shops. On the acreage properties the outbuildings matter: a barn or shop roof sheds an enormous volume, and up here that volume is larger than it would be for the same roof in Tacoma.",
+    climate:
+      "This is the wettest and snowiest part of our service area by a clear margin. The Snoqualmie Valley and the foothills below the Cascade crest take far more annual precipitation than the Sound-level cities, and winter brings genuine snow and freeze-thaw cycles rather than the occasional cold snap. Both facts change the specification: troughs and downspouts have to be sized for real volume, and hanger spacing has to account for the weight of snow and ice sitting in a run. Ice in a trough that couldn't drain is how a gutter pulls off a fascia. Add dense conifer cover and North Bend is a place where we'd recommend guards to almost anyone.",
+    issues: [
+      "Snoqualmie Valley rainfall well above Sound-level volumes",
+      "Snow and ice load requiring closer hanger spacing",
+      "Original gutter systems on the older town-core housing",
+      "Barns and shops on valley acreage shedding unmanaged water",
+    ],
+    nearby: ["issaquah", "sammamish", "bonney-lake"],
+  },
+  {
+    slug: "olympia",
+    name: "Olympia",
+    county: "Thurston",
+    countySlug: "thurston-county",
+    photoCity: "Olympia",
+    metaTitle: "Seamless Gutter Installation in Olympia, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Olympia, WA — the wettest city we serve, with historic Craftsman stock and heavy fir. Call (253) 498-5575.",
+    lead:
+      "Olympia is the wettest city on our service map — noticeably wetter than Tacoma or Seattle — and gutters here simply do more work.",
+    areas: ["South Capitol", "Eastside", "Northeast Olympia", "Budd Inlet waterfront", "Westside", "Tumwater edge"],
+    homes:
+      "The neighborhoods around the Capitol campus — South Capitol and the Eastside in particular — hold Olympia's older housing: Craftsman bungalows and early-century homes with steep pitches, deep eaves, and original wood fascia. Many are still on narrow original troughs that were undersized even for a drier city. Westside and Northeast Olympia mix in mid-century and newer stock on larger, more heavily treed lots, and down along Budd Inlet the exposure changes to salt air off the water.",
+    climate:
+      "Annual rainfall at the south end of Puget Sound is significantly higher than at Tacoma or Seattle, and that single fact is the most useful thing to know about gutters in Olympia. A trough that is marginal in Tacoma is genuinely undersized here, so 6-inch and proper downspout counts are the default recommendation rather than an upsell. Olympia is also densely treed, with mature Douglas fir through most residential neighborhoods, meaning continuous needle load on top of the highest water volume we deal with.",
+    issues: [
+      "Undersized original troughs against the highest rainfall we serve",
+      "Original wood fascia behind century-old gutter lines",
+      "Continuous fir needle load through the residential neighborhoods",
+      "Salt air on the Budd Inlet waterfront side",
+    ],
+    nearby: ["roy", "lakewood", "shelton"],
+  },
+  {
+    slug: "bremerton",
+    name: "Bremerton",
+    county: "Kitsap",
+    countySlug: "kitsap-county",
+    photoCity: "Bremerton",
+    metaTitle: "Seamless Gutter Installation in Bremerton, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Bremerton, WA — war-era shipyard housing, steep Sinclair Inlet hillsides, salt air. Veteran-owned. Call (253) 498-5575.",
+    lead:
+      "Bremerton is a Navy town, and as a veteran-owned company it's one we're glad to work in. Its housing tells the story of the shipyard.",
+    areas: ["Manette", "East Bremerton", "West Bremerton", "Sinclair Inlet hillsides", "Illahee"],
+    homes:
+      "A great deal of Bremerton was built quickly in the 1940s to house shipyard workers, and that housing is still in service: small footprints, simple rooflines, and construction that was never intended to last eighty years. Gutter work on these homes routinely turns up fascia that needs attention, and the honest conversation is often about what the wood behind the gutter can actually hold. Manette and the older neighborhoods across the water add early-century homes with more character and more trim to protect, and the hillside streets above Sinclair Inlet put all of it on a grade.",
+    climate:
+      "Bremerton wraps around salt water on two sides, so hardware corrosion is a live concern rather than a theoretical one — hangers and fasteners go first, and a gutter can sag while the trough itself still looks fine. The hillsides are the other factor: on a slope above the inlet, runoff discharged at a foundation travels downhill toward whatever is below it, so routing matters. Tree cover through the older neighborhoods is mature and mixed.",
+    issues: [
+      "Eighty-year-old war-era construction with tired fascia",
+      "Salt-air corrosion on hangers and fasteners, two sides of the city",
+      "Steep inlet hillsides where runoff travels rather than soaks",
+      "Trim detail worth protecting on older Manette homes",
+    ],
+    nearby: ["port-orchard", "silverdale", "gig-harbor"],
+  },
+  {
+    slug: "silverdale",
+    name: "Silverdale",
+    county: "Kitsap",
+    countySlug: "kitsap-county",
+    photoCity: "Silverdale",
+    metaTitle: "Seamless Gutter Installation in Silverdale, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Silverdale, WA — 80s-2000s subdivisions, Dyes Inlet, and heavy Kitsap tree cover. Call (253) 498-5575.",
+    lead:
+      "Silverdale is Kitsap's commercial center surrounded by subdivisions and second-growth fir, and it's a straightforward place to do good gutter work.",
+    areas: ["Silverdale Way corridor", "Dyes Inlet", "Chico", "Island Lake", "Ridgetop"],
+    homes:
+      "Most residential Silverdale went up from the 1980s through the 2000s — two-story subdivision housing on wooded or partly cleared lots, much of it serving Naval Base Kitsap. Those homes are now at the age where builder-grade gutter systems fail: hangers loosen, corners open, and the downspout count that was minimally adequate when the trees were small isn't any more. Around Dyes Inlet and Island Lake there are older and more varied homes, some on the water.",
+    climate:
+      "Kitsap keeps a lot of its second-growth Douglas fir, and Silverdale's subdivisions were largely cut into it rather than clearing it, so most homes here have real conifer standing over the roofline. Fine needle drop is the dominant debris and it passes straight through coarse screens. Homes on Dyes Inlet take some salt exposure; inland lots don't, and the honest recommendation differs between them.",
+    issues: [
+      "Builder-grade 80s-2000s systems failing at hangers and corners",
+      "Fine fir needle drop from retained second-growth cover",
+      "Downspout counts set when the surrounding trees were small",
+      "Salt exposure on the Dyes Inlet waterfront, not inland",
+    ],
+    nearby: ["bremerton", "kingston", "port-orchard"],
+  },
+  {
+    slug: "port-orchard",
+    name: "Port Orchard",
+    county: "Kitsap",
+    countySlug: "kitsap-county",
+    photoCity: "Port Orchard",
+    metaTitle: "Seamless Gutter Installation in Port Orchard, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Port Orchard, WA — waterfront downtown, hillside view homes, and rural acreage south of town. Call (253) 498-5575.",
+    lead:
+      "Port Orchard runs from a waterfront downtown up a hillside and out into acreage, and a gutter job here can be any of those three things.",
+    areas: ["Downtown waterfront", "Bethel", "Manchester", "Olalla", "South Kitsap"],
+    homes:
+      "The older waterfront core has small, close-set homes with simple rooflines right on Sinclair Inlet, where salt exposure is at its worst. The hillside above holds view homes where downspout placement and gutter profile affect the sightline people bought the house for. Head south toward Olalla and out through South Kitsap and it becomes rural: larger parcels, custom homes, and outbuildings that shed real volume and are routinely left off estimates.",
+    climate:
+      "Salt air off Sinclair Inlet and the wider Sound is the headline concern for anything near the water — hardware fails before the trough does. Away from the water, Kitsap's second-growth fir takes over, and the rural properties south of town sit under enough conifer that continuous needle load, not rainfall, is the constraint on how long a system goes between cleanouts.",
+    issues: [
+      "Salt-air hardware corrosion on the waterfront and hillside",
+      "View sightlines affected by trough profile and downspout placement",
+      "Rural outbuildings and shops with no drainage",
+      "Heavy fir needle load on the wooded South Kitsap parcels",
+    ],
+    nearby: ["bremerton", "gig-harbor", "silverdale"],
+  },
+  {
+    slug: "kingston",
+    name: "Kingston",
+    county: "Kitsap",
+    countySlug: "kitsap-county",
+    photoCity: "Kingston",
+    metaTitle: "Seamless Gutter Installation in Kingston, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Kingston, WA. Heavily treed north Kitsap lots and bluff homes above the Sound. Call (253) 498-5575.",
+    lead:
+      "Kingston is a small ferry town on a heavily wooded stretch of north Kitsap, and the trees are the story here.",
+    areas: ["Kingston village", "Arborwood", "Apple Tree Cove", "Hansville Road corridor", "Indianola edge"],
+    homes:
+      "Kingston is smaller and less varied than the other Kitsap towns we serve — a compact village core, waterfront and bluff homes above Apple Tree Cove, and rural acreage spreading inland. There's less architectural range to describe than in Bremerton or Port Orchard, and it would be padding to pretend otherwise. What the properties do share is heavy tree cover and, on the water side, exposure.",
+    climate:
+      "North Kitsap is densely forested, and Kingston's homes generally sit among mature conifer rather than beside it. Continuous fine needle drop is the dominant maintenance problem, and on the rural inland lots a homeowner is often dealing with the canopy of trees they own. On the bluff above the cove and along the shoreline, salt air and wind off the Sound shift the emphasis to hardware and to how securely a run is hung.",
+    issues: [
+      "Continuous needle drop from dense north Kitsap conifer",
+      "Salt air and wind exposure on the bluff and shoreline",
+      "Rural lots where the homeowner owns the canopy above the roof",
+      "Long driveways affecting where a truck can set up to form runs",
+    ],
+    nearby: ["silverdale", "edmonds", "bremerton"],
+  },
+  {
+    slug: "shelton",
+    name: "Shelton",
+    county: "Mason",
+    countySlug: "mason-county",
+    photoCity: "Shelton",
+    metaTitle: "Seamless Gutter Installation in Shelton, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Shelton, WA — timber country tree cover, mill-town housing, and rural acreage. Call (253) 498-5575.",
+    lead:
+      "Shelton is working timber country, and there is more standing conifer per house here than anywhere else we serve.",
+    areas: ["Downtown Shelton", "Oakland Bay", "Agate", "Shelton Valley", "Isabella Lake"],
+    homes:
+      "Shelton's in-town housing is mill-town stock: modest older homes with simple rooflines, many still on original or long-neglected gutters, where a clean seamless run makes an immediate difference to how the house reads. Outside town it opens into acreage — farmhouses, custom builds, manufactured homes, and properties with shops and equipment buildings that need drainage as much as the house does. Around Oakland Bay there's waterfront with the exposure that comes with it.",
+    climate:
+      "This is timber country in the literal sense, and the practical consequence is needle load without much relief. Homes here sit under and among working forest, and no coarse screen holds up against fir and cedar at that density — micro-mesh or nothing, and for a lot of Shelton properties guards genuinely cost less over five years than the cleanouts they replace. Mason County also takes more rainfall than the cities up on the Sound, so capacity matters alongside protection.",
+    issues: [
+      "Extreme needle load from surrounding working forest",
+      "Original or long-neglected systems on older in-town housing",
+      "Shops and equipment buildings left with no drainage",
+      "Higher Mason County rainfall requiring real trough capacity",
+    ],
+    nearby: ["belfair", "olympia", "port-orchard"],
+  },
+  {
+    slug: "belfair",
+    name: "Belfair",
+    county: "Mason",
+    countySlug: "mason-county",
+    photoCity: "Belfair",
+    metaTitle: "Seamless Gutter Installation in Belfair, WA — Seamless Gutters 4 Less",
+    metaDesc:
+      "Seamless gutters in Belfair, WA — Hood Canal waterfront cabins and heavily treed rural lots. Call (253) 498-5575.",
+    lead:
+      "Belfair sits at the head of Hood Canal, where heavy tree cover and salt water meet — an unusual combination, and a demanding one.",
+    areas: ["Belfair village", "Hood Canal shoreline", "North Shore", "Sand Hill", "Allyn edge"],
+    homes:
+      "Belfair is a small community and we won't pretend it has the housing variety of a city. What's here is a compact village core, cabins and year-round homes strung along the Hood Canal shoreline — many of them originally seasonal and since expanded, which leaves rooflines that drain in ways nobody planned — and rural properties on wooded acreage inland. Outbuildings are common and worth including in the estimate.",
+    climate:
+      "The combination is what makes Belfair distinctive. Hood Canal brings salt air, so hardware choice matters the way it does in Edmonds or Mukilteo. But unlike those cities, Belfair is also densely forested right down to the water, so you get continuous conifer needle load on top of the corrosion exposure. Most places give you one problem or the other. Mason County rainfall is also higher than the Sound-level cities, which means capacity is a real consideration rather than a formality.",
+    issues: [
+      "Salt air and heavy conifer cover at the same time",
+      "Expanded seasonal cabins with unplanned roof drainage",
+      "Higher Mason County rainfall against undersized older troughs",
+      "Rural outbuildings with no drainage at all",
+    ],
+    nearby: ["shelton", "olympia", "gig-harbor"],
+  },
 ];
 
 /* Questions are the ones people actually type or ask an assistant. Answers
@@ -740,6 +1163,40 @@ const GUARD_ANSWERS = {
     "On Mercer Island, yes, for nearly every home. Protected mature canopy across the island means continuous needle drop plus a heavy fall maple load, and there's no version of that a bare open gutter handles well.",
   sammamish:
     "Yes, and for a reason beyond debris: these rooflines are high. Even setting aside the fir needle load from Klahanie and the lakes, guards on a three-story Sammamish elevation are as much a safety decision as a maintenance one.",
+  everett:
+    "Depends on the neighborhood. Under the mature canopy in Northwest Everett and Rucker Hill, clearly worth it. In the newer south-end subdivisions with young landscaping, often not, and we'll say so.",
+  marysville:
+    "Usually a judgment call. Much of Marysville's newer housing has young landscaping and little overhead cover — the better spend there is fixing the downspout count. The larger wooded lots east toward Getchell are a different answer.",
+  "lake-stevens":
+    "Worth it on the older wooded lakeside streets where second-growth fir stands over the roofline. On the newer hillside subdivisions above the lake, the drainage question usually matters more than the debris one.",
+  snohomish:
+    "In the valley and along the river corridor, yes — the big deciduous trees there drop a heavy fall load that mats and seals a downspout. Guard fit matters more than mesh rating with leaf that size.",
+  monroe:
+    "Generally yes. Foothill conifer cover is heavier than the lowlands, and the extra rainfall means a blocked trough overflows sooner and harder than it would out on the Sound.",
+  issaquah:
+    "Almost always. The Alps put mature conifer directly over houses here and needle drop is continuous, so micro-mesh rather than screen. On a steep forested lot it's also the difference between a ladder on a slope twice a year and never.",
+  woodinville:
+    "Yes on Hollywood Hill and the Cottage Lake lots — Woodinville kept more of its original fir than most of King County, and that's exactly the debris a coarse screen passes straight through.",
+  shoreline:
+    "For most established Shoreline streets, yes. The canopy over those 1950s lots is seventy years bigger than the gutters were sized for, which is why people here clean them more often than they expect to.",
+  covington:
+    "Depends on your lot rather than the city. Backing the Jenkins Creek greenbelt or a retained stand of fir, yes. On an interior subdivision lot with young landscaping, a guard buys you very little and we'd rather fix your downspout count.",
+  "north-bend":
+    "We'd recommend them to almost anyone in North Bend. Dense conifer plus the heaviest rainfall and snow on our map is the exact combination guards exist for, and a freeze-up starts with a trough that couldn't drain.",
+  olympia:
+    "Yes, in most of Olympia. It's both the wettest city we serve and a densely fir-covered one, so a blocked trough here overflows with more water behind it than anywhere else on this list.",
+  bremerton:
+    "Depends on the lot, and on hardware first. Bremerton's older neighborhoods have mature mixed canopy where guards help, but on a war-era house we'd want the fascia and hangers sound before adding anything to them.",
+  silverdale:
+    "Usually yes. Silverdale's subdivisions were cut into second-growth fir rather than clearing it, so most homes have real conifer overhead — and fine needles are what coarse screens miss.",
+  "port-orchard":
+    "Out on the wooded South Kitsap parcels, yes. On the waterfront and hillside, less about debris and more about hardware surviving the salt air — we'd put your money there first.",
+  kingston:
+    "For most Kingston properties, yes. North Kitsap is densely forested and homes here generally sit among the conifer rather than beside it, which means continuous needle drop rather than a seasonal cleanup.",
+  shelton:
+    "Yes, and micro-mesh specifically. This is working timber country — the needle density here is beyond what any coarse screen handles, and for a lot of Shelton properties guards cost less over five years than the cleanouts they replace.",
+  belfair:
+    "Yes for the wooded lots, which is most of them. Belfair gives you salt air and dense conifer at once, so the guard handles the needles while the hardware specification handles the corrosion. Both matter here.",
 };
 
 SERVICE_AREAS.forEach((a) => {
@@ -772,6 +1229,24 @@ export const SERVICE_AREA_COUNTIES = [
     name: "Snohomish County",
     blurb:
       "The North Sound corridor. Salt air along the water in Edmonds and Mukilteo, master-planned neighborhoods and greenbelt conifers inland, and a lot of postwar housing still on its original gutters.",
+  },
+  {
+    slug: "thurston-county",
+    name: "Thurston County",
+    blurb:
+      "The south end of the Sound, and the wettest ground we work on. Rainfall here runs well above Tacoma or Seattle, which makes trough capacity a real specification rather than a formality.",
+  },
+  {
+    slug: "kitsap-county",
+    name: "Kitsap County",
+    blurb:
+      "Across the water, and a peninsula that gives you both problems at once: salt air on three sides and second-growth fir standing over most of the housing.",
+  },
+  {
+    slug: "mason-county",
+    name: "Mason County",
+    blurb:
+      "Working timber country at the head of Hood Canal. More standing conifer per house than anywhere else we serve, and more rain than the Sound-level cities.",
   },
 ];
 
