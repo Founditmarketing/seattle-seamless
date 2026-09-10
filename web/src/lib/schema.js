@@ -177,6 +177,41 @@ export function serviceAreaSchema(area) {
   };
 }
 
+/*
+ * Service scoped to one city AND one service — the city × service matrix
+ * pages (data/serviceMatrix.js). Narrower than serviceAreaSchema(), whose
+ * serviceType covers everything we do: here serviceType is the single
+ * service, which is the whole reason the page exists as its own document.
+ */
+export function cityServiceSchema(entry) {
+  const url = `${baseUrl}${entry.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    serviceType: entry.serviceTitle,
+    name: `${entry.serviceTitle} in ${entry.area.name}, ${SITE.address.region}`,
+    provider: { "@id": `${baseUrl}#business` },
+    areaServed: {
+      "@type": "City",
+      name: `${entry.area.name}, ${SITE.address.region}`,
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: `${entry.area.county} County, ${SITE.address.regionFull}`,
+      },
+    },
+    description: entry.metaDesc,
+    url,
+    /* Points back at the general service page so the two aren't read as
+     * unrelated offerings of the same thing. */
+    isSimilarTo: {
+      "@type": "Service",
+      name: entry.serviceTitle,
+      url: `${baseUrl}/services/${entry.service}/`,
+    },
+  };
+}
+
 export function breadcrumbSchema(items) {
   return {
     "@context": "https://schema.org",

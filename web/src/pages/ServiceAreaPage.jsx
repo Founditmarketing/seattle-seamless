@@ -12,6 +12,7 @@ import {
   faqSchema,
 } from "../lib/schema";
 import { findArea, cityFaqs } from "../data/serviceAreas";
+import { matrixForCity } from "../data/serviceMatrix";
 import { SERVICES } from "../data/services";
 import { GALLERY } from "../data/gallery";
 import { REVIEWS } from "../data/reviews";
@@ -45,6 +46,13 @@ export default function ServiceAreaPage() {
   const localPhotos = GALLERY.filter((g) => g.city === area.photoCity).slice(0, 6);
   const localReviews = REVIEWS.filter((r) => r.city === area.name).slice(0, 3);
   const neighbors = area.nearby.map(findArea).filter(Boolean);
+
+  /* Where a city × service page exists for this city, the service card
+   * should point there rather than at the generic service page — that
+   * deeper page is the one written for this city's version of the job. */
+  const matrixByService = Object.fromEntries(
+    matrixForCity(area.slug).map((e) => [e.service, e]),
+  );
 
   const schemas = [
     localBusinessSchema(),
@@ -175,10 +183,11 @@ export default function ServiceAreaPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s) => {
               const Icon = s.icon;
+              const deep = matrixByService[s.slug];
               return (
                 <Link
                   key={s.slug}
-                  to={`/services/${s.slug}/`}
+                  to={deep ? deep.path : `/services/${s.slug}/`}
                   className="haptic group bg-white/[0.06] border border-white/10 rounded-[var(--radius-card)] p-6 hover:bg-white/[0.1] transition-colors"
                 >
                   <span className="inline-flex w-9 h-9 rounded-[10px] bg-[var(--color-copper)] text-white items-center justify-center mb-4">
@@ -189,7 +198,13 @@ export default function ServiceAreaPage() {
                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h3>
                   <p className="text-white/65 text-sm leading-relaxed">{s.short}</p>
-                  <span className="sr-only">in {area.name}, WA</span>
+                  {deep ? (
+                    <span className="inline-block mt-3 text-[12px] font-medium text-[var(--color-copper)]">
+                      {s.title} in {area.name} &rarr;
+                    </span>
+                  ) : (
+                    <span className="sr-only">in {area.name}, WA</span>
+                  )}
                 </Link>
               );
             })}
