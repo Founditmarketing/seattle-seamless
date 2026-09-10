@@ -137,6 +137,46 @@ export function serviceSchema(service) {
   };
 }
 
+/*
+ * Service scoped to a single city — the structured-data half of the
+ * service-area pages (sg4l-plan.md §7, item 9). Differs from
+ * serviceSchema() in that areaServed is a City, not the full county list:
+ * that specificity is the whole point of a city landing page, and emitting
+ * all six counties on every one of them would flatten the signal back out.
+ */
+export function serviceAreaSchema(area) {
+  const url = `${baseUrl}/service-areas/${area.countySlug}/${area.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    serviceType: "Seamless gutter installation, replacement, guards, and repair",
+    provider: { "@id": `${baseUrl}#business` },
+    areaServed: {
+      "@type": "City",
+      name: `${area.name}, ${SITE.address.region}`,
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: `${area.county} County, ${SITE.address.regionFull}`,
+      },
+    },
+    description: area.metaDesc,
+    url,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `Gutter services in ${area.name}, ${SITE.address.region}`,
+      itemListElement: SERVICES.map((s) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: `${s.title} in ${area.name}, ${SITE.address.region}`,
+          url: `${baseUrl}/services/${s.slug}/`,
+        },
+      })),
+    },
+  };
+}
+
 export function breadcrumbSchema(items) {
   return {
     "@context": "https://schema.org",
@@ -161,12 +201,17 @@ export function breadcrumbSchema(items) {
  * matches exactly what the page renders (a requirement for FAQ rich
  * results). Google forbids HTML tags other than a small allow-list here, so
  * we emit plain text.
+ *
+ * `id` overrides the @id for pages that carry their own FAQ block (the
+ * service-area pages each publish a city-specific set). Two FAQPage nodes
+ * sharing one @id across different URLs is a conflicting-entity signal, so
+ * any caller that isn't /faq/ must pass its own.
  */
-export function faqSchema(faqs) {
+export function faqSchema(faqs, id) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": `${baseUrl}/faq/#faq`,
+    "@id": id || `${baseUrl}/faq/#faq`,
     mainEntity: faqs.map(({ q, a }) => ({
       "@type": "Question",
       name: q,

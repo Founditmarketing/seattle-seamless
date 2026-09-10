@@ -6,6 +6,7 @@ import { useScrolled } from "../hooks/useScrolled";
 
 const NAV = [
   { label: "Services", href: "/services/seamless-gutter-installation/" },
+  { label: "Service Areas", href: "/service-areas/" },
   { label: "Gallery",  href: "/gallery/" },
   { label: "Reviews",  href: "/reviews/" },
   { label: "About",    href: "/about/" },

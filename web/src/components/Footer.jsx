@@ -2,7 +2,15 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, ChevronRight } from "lucide-react";
 import { SITE } from "../data/site";
 import { TOP_FOOTER_CITIES } from "../data/cities";
+import { SERVICE_AREAS } from "../data/serviceAreas";
 import { SERVICES } from "../data/services";
+
+/* Footer cities become links once that city has a landing page. The rest
+ * stay plain text — we serve them, we just haven't written the page yet,
+ * and a dead link is worse than no link. */
+const CITY_PATHS = Object.fromEntries(
+  SERVICE_AREAS.map((a) => [a.name, `/service-areas/${a.countySlug}/${a.slug}/`]),
+);
 import Stamp from "./atoms/Stamp";
 
 const COMPANY_LINKS = [
@@ -91,12 +99,29 @@ export default function Footer() {
               Top Service Areas
             </div>
             <ul className="space-y-3 text-[14px] text-white/70 grid grid-cols-2 gap-x-4">
-              {TOP_FOOTER_CITIES.map((s) => (
-                <li key={s}>
-                  <span className="text-white/70">{s}, WA</span>
-                </li>
-              ))}
+              {TOP_FOOTER_CITIES.map((s) =>
+                CITY_PATHS[s] ? (
+                  <li key={s}>
+                    <Link
+                      to={CITY_PATHS[s]}
+                      className="text-white/70 hover:text-[var(--color-copper)] transition-colors"
+                    >
+                      {s}, WA
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={s}>
+                    <span className="text-white/70">{s}, WA</span>
+                  </li>
+                ),
+              )}
             </ul>
+            <Link
+              to="/service-areas/"
+              className="inline-flex items-center gap-1 mt-4 text-[13px] text-white/70 hover:text-[var(--color-copper)] transition-colors"
+            >
+              All service areas <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           <div className="lg:col-span-2">
