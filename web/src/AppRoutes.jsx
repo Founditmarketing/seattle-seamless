@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import ServicePage from "./pages/ServicePage";
 import ServiceAreasPage from "./pages/ServiceAreasPage";
 import ServiceAreaPage from "./pages/ServiceAreaPage";
+import CityServicePage from "./pages/CityServicePage";
 import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
 import ReviewsPage from "./pages/ReviewsPage";
@@ -27,9 +28,13 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services/:slug/*" element={<ServicePage />} />
-        {/* Service areas: hub → county hub → city landing page.
-            Order matters — the two-segment city route must be declared
-            before the one-segment county route can swallow it. */}
+        {/* Service areas: hub → county hub → city page → city × service.
+            Order matters, most specific first — each shorter path's splat
+            would otherwise swallow the longer one. */}
+        <Route
+          path="/service-areas/:county/:city/:service/*"
+          element={<CityServicePage />}
+        />
         <Route path="/service-areas/:county/:city/*" element={<ServiceAreaPage />} />
         <Route path="/service-areas/:county/*" element={<ServiceAreasPage />} />
         <Route path="/service-areas/*" element={<ServiceAreasPage />} />

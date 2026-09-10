@@ -15,6 +15,7 @@
  */
 
 import { SERVICE_AREA_PATHS } from "./serviceAreas.js";
+import { SERVICE_MATRIX_PATHS } from "./serviceMatrix.js";
 
 export const SERVICE_SLUGS = [
   "seamless-gutter-installation",
@@ -46,6 +47,14 @@ export const SITE_ROUTES = [
     loc,
     changefreq: "monthly",
     priority: loc.split("/").filter(Boolean).length >= 3 ? 0.9 : 0.7,
+  })),
+  /* City × service pages. Same priority as the city pages they hang off:
+   * they target the longest-tail, highest-intent queries in the cluster
+   * ("gutter guards Gig Harbor"), so they're not a lower-value tier. */
+  ...SERVICE_MATRIX_PATHS.map((loc) => ({
+    loc,
+    changefreq: "monthly",
+    priority: 0.9,
   })),
 ];
 
